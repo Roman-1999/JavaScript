@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="../index.html">Повернутися назад</a>
+  <div>Задача №1</div>
+  <div class="">Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).</div>
+  <script>
+    const month = Math.floor(Math.random() * 12) + 1;
+    const day = Math.floor(Math.random() * 7);
+    const sum = month + day
+    document.write(
+      `
+        <div>Рандомне число місяця від 1 до 12 - ${month}</div>
+        <div>Рандомне число номера від 0 до 6 - ${day}</div>
+        <div>Сума цих чисел ${sum}</div>
+      `
+    )
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="../index.html">Повернутися назад</a>
+  <div>Задача №3</div>
+  <div class="">Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).</div>
+  <script>
+    const countProduct = parseFloat(prompt("Введіть кількість продуктів"))
+    const priceProduct = parseFloat(prompt("Введіть ціну за одиницю продукта"))
+    let totalPrice = countProduct * priceProduct
+    let totalPdv = totalPrice + ((totalPrice * 5) / 100)
+    document.write(
+      `
+        <div>Кількість продуктів - ${countProduct} грн</div>
+        <div>Ціна за одиницю продукта - ${priceProduct.toFixed(2)} грн</div>
+        <div>Повна ціна за весь продукт складає - ${totalPrice.toFixed(2)} грн</div>
+        <div>А з урахуванням 5% ПДВ - ${totalPdv.toFixed(2)} грн</div>
+        `
+    )
+  </script>
+</body>
+
+</html>
