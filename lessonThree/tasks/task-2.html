@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="../index.html">Повернутися назад</a>
+  <div>Задача №2</div>
+  <div>
+    З клавіатури вводиться ціна товару і кількість грошей.
+    Якщо грошей не вистачає то відмовляємо у покупці, інакше,
+    якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+  </div>
+  <script>
+    let priceProduct = parseFloat(prompt('Введіть ціну продукта', '32'))
+    let totalMoney = parseFloat(prompt('Введіть вашу кількість грошей', '1984.62'))
+    let result
+    if (priceProduct > totalMoney) {
+      result = `Ціна одного продукта більше за ту суму, яка є зараз. Ціна продукта - ${priceProduct} грн/од, а у вас ${totalMoney} грн`
+    } else {
+      totalMoney %= priceProduct
+      if (totalMoney >= 4) {
+        result = `У вас залишається ще сума після покупки ${totalMoney.toFixed(2)}грн і я хочу запропонувати вам купити білет за 4 грн`
+      } else (
+        result = `Ви успішно придбали товар, але у вас залишилось ${totalMoney.toFixed(2)} грн, тому я не можу запропнувати вам додатковий білет за 4 грн`
+      )
+    }
+    const resultElement = document.createElement('div')
+    resultElement.textContent = result
+    document.body.appendChild(resultElement)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="../index.html">Повернутися назад</a>
+  <div>Задача №6</div>
+  <div>
+    З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+  </div>
+  <script>
+    const dayNumber = parseInt(prompt('Введіть номер дня тижня (1-7)'))
+    let result
+
+    switch (dayNumber) {
+      case 1:
+        result = 'Понеділок'
+        break
+      case 2:
+        result = 'Вівторок'
+        break
+      case 3:
+        result = 'Середа'
+        break
+      case 4:
+        result = 'Четвер'
+        break
+      case 5:
+        result = 'П\'ятниця'
+        break
+      case 6:
+        result = 'Субота'
+        break
+      case 7:
+        result = 'Неділя'
+        break
+      default:
+        result = 'Невідомий день тижня'
+    }
+
+    const resultElement = document.createElement('div')
+    resultElement.textContent = result
+    document.body.appendChild(resultElement)
+  </script>
+</body>
+
+</html>
