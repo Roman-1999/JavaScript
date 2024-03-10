@@ -40,9 +40,11 @@
                 result = `Ви успішно придбали товар, але у вас залишилось ${totalMoney.toFixed(2)} грн, тому я не можу запропнувати вам додатковий білет за 4 грн`
               )
             }
-            const resultElement = document.createElement('div')
-            resultElement.textContent = result
-            document.body.appendChild(resultElement)
+            document.write(
+              `
+              <div>${result}</div>
+              `
+            )
           </script>
         </div>
       </div>

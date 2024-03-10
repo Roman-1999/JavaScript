@@ -41,9 +41,11 @@
               result = 'Ви пенсіонер'
             }
 
-            const resultElement = document.createElement('div')
-            resultElement.textContent = result
-            document.body.appendChild(resultElement)
+            document.write(
+              `
+              <div>${result}</div>
+              `
+            )
           </script>
         </div>
       </div>
