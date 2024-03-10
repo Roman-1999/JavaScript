@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 5</span></div>
+          <div class="main__item">
+            Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+          </div>
+          <script>
+            const N = parseInt(prompt('Введіть розмір поля по горизонталі'))
+            const M = parseInt(prompt('Введіть розмір поля по вертикалі'))
+            const sum = N * M
+            let K = parseInt(prompt(`Введіть кількість снарядів для гри, максимальна кількість = ${sum}`))
+            if (K > sum) {
+              document.write(`<div>Ви ввели перевищену кількість снарядів для гри, максимальна кількість снарядів для гри при полі ${N} на ${M} становить ${sum}</div>`);
+            } else {
+              let shipPositionX = Math.floor(Math.random() * N);
+              let shipPositionY = Math.floor(Math.random() * M);
+              let shotsFired = 0;
+              while (K > 0) {
+                let attackPositionPlayerX = parseInt(prompt(`Введіть позицію для атаки по X, максимальна позиція по X - ${N}`))
+                let attackPositionPlayerY = parseInt(prompt(`Введіть позицію для атаки по Y, максимальна позиція по Y - ${M}`))
+                shotsFired++;
+                if (shipPositionX == attackPositionPlayerX && shipPositionY == attackPositionPlayerY) {
+                  document.write(`<div>Вітаємо! Корабель знищений на ${shotsFired} пострілі!</div>`);
+                  break;
+                }
+                K--;
+              }
+
+              if (K === 0) {
+                document.write(`На жаль, всі снаряди використані, корабель не потоплений.`);
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

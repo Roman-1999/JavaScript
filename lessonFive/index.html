@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <title>JS | Урок 5: Цикли</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <div class="main__title main__title--big">Урок №5: <span>Цикли</span></div>
+          <div class="main__item">
+            <div class="main__title main__title--small">5 задач на перевірку</div>
+            <ul class="main__list list">
+              <li class="list__item">
+                <a href="tasks/mandatory/task-1.html" class="list__number">Завдання №1</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/mandatory/task-2.html" class="list__number">Завдання №2</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Створити 10 елементів для введення цін продуктів
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/mandatory/task-3.html" class="list__number">Завдання №3</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел вводиться користувачем.
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/mandatory/task-4.html" class="list__number">Завдання №4</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/mandatory/task-5.html" class="list__number">Завдання №5</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="main__item">
+            <div class="main__title main__title--small">Інші задачі</div>
+            <ul class="main__list list">
+              <li class="list__item">
+                <a href="tasks/optional/task-1.html" class="list__number">Завдання №1</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести на екран номери місяців весни і літа (від 3 до 8)
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-2.html" class="list__number">Завдання №2</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести на екран 8 кнопок з написом “Hello”.
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-3.html" class="list__number">Завдання №3</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести таблицю з одним рядком і 7 стовпцями.
+                    <!--
+                    1 2 3 4 5 6 7
+                    -->
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-4.html" class="list__number">Завдання №4</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести таблицю з 3 рядків і 7 стовпців
+                    <!--
+                    1 2 3 4 5 6 7
+                    1 2 3 4 5 6 7
+                    1 2 3 4 5 6 7
+                    -->
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-5.html" class="list__number">Завдання №5</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести таблицю
+                    <!--
+                    1 2 3
+                    4 5 6
+                    7 8 9
+                    -->
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-6.html" class="list__number">Завдання №6</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+                    <!--
+                    1 2 3      10 11 12      19 20 21
+                    4 5 6      13 14 15      22 23 24
+                    7 8 9      16 17 18      25 26 27
+                    -->
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-7.html" class="list__number">Завдання №7</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+                    <!--
+                    <h1>Заголовок 1</h1>
+                    <p>Розділ 1, параграф 1</p>
+                    <hr>
+                    <h1>Заголовок 2</h1>
+                    <p>Розділ 2, параграф 1</p>
+                    <p>Розділ 2, параграф 2</p>
+                    <hr>
+                    <h1>Заголовок 3</h1>
+                    <p>Розділ 3, параграф 1</p>
+                    <p>Розділ 3, параграф 2</p>
+                    <p>Розділ 3, параграф 3</p>
+                    <hr>
+                    ...
+                    -->
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-8.html" class="list__number">Завдання №8</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-9.html" class="list__number">Завдання №9</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-10.html" class="list__number">Завдання №10</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-11.html" class="list__number">Завдання №11</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне
+                    з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн,
+                    три других – 200, три третіх – 500, три четвертих зображення – 1000грн).
+                    Використати цикли і switch (для вибору зображення за номером).
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-12.html" class="list__number">Завдання №12</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до
+                    тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють,
+                    яку ще суму потрібно ввести).
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-13.html" class="list__number">Завдання №13</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+                  </div>
+                </div>
+              </li>
+              <li class="list__item">
+                <a href="tasks/optional/task-14.html" class="list__number">Завдання №14</a>
+                <div class="list__condition">Умова завдання</div>
+                <div class="list__question question">
+                  <div class="question__title">
+                    Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів.
+                    Знайти загальну величину прибутку та вивести величину прибутку протягом кожного окремого тижня.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
