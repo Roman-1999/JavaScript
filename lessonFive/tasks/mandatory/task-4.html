@@ -28,7 +28,7 @@
             const startNumber = parseInt(prompt('Введіть початкове значення'))
             const endNumber = parseInt(prompt('Введіть максимальне значення'))
             let totalSum = 0
-            for (let i = startNumber; i < endNumber; i++) {
+            for (let i = startNumber; i <= endNumber; i++) {
               i % 2 != 0 ? totalSum += i : ''
             }
             document.write(

@@ -22,8 +22,20 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 3</span></div>
           <div class="main__item">
+            Вивести таблицю з одним рядком і 7 стовпцями.
+            <!--
+            1 2 3 4 5 6 7
+            -->
           </div>
           <script>
+            const maxNumber = 7
+            document.write('<table>')
+            document.write('<tr>')
+            for (let i = 1; i <= maxNumber; i++) {
+              document.write(`<td>${i}</td>`);
+            }
+            document.write('</tr>')
+            document.write('</table>')
           </script>
         </div>
       </div>

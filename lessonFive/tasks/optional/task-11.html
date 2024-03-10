@@ -22,8 +22,35 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 11</span></div>
           <div class="main__item">
+            Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне
+            з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн,
+            три других – 200, три третіх – 500, три четвертих зображення – 1000грн).
+            Використати цикли і switch (для вибору зображення за номером).
           </div>
           <script>
+            const startPosition = 1, endPosition = 4
+            let sum = 0
+            for (let i = 0; i < 3; i++) {
+              let imgNum = startPosition + Math.floor(Math.random() * (endPosition - startPosition + 1))
+              document.write(`<img src="../../../img/${imgNum}.png" style="width:80px"/>`)
+              sum += Math.pow(10, imgNum - 1)
+            }
+            let money = 0
+            switch (sum) {
+              case 30:
+                money = 100
+                break
+              case 300:
+                money = 200
+                break
+              case 3000:
+                money = 500
+                break
+              case 30000:
+                money = 1000
+                break
+            }
+            document.write(`Виграш = ${money}`)
           </script>
         </div>
       </div>

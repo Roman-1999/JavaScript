@@ -22,8 +22,26 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 9</span></div>
           <div class="main__item">
+            Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
           </div>
           <script>
+            let minNumber = 1
+            let maxNumber = 100000
+            let guess
+            let userNumber = parseInt(prompt("Введіть число від 1 до 100000, яке ви хочете, щоб комп'ютер вгадав:"))
+            while (true) {
+              guess = Math.floor((minNumber + maxNumber) / 2)
+              let confirmation = confirm(`Ваше число менше, більше чи дорівнює ${guess}?`)
+              if (confirmation) {
+                maxNumber = guess - 1
+              } else {
+                minNumber = guess + 1
+              }
+              if (minNumber > maxNumber) {
+                alert(`Комп'ютер вгадав ваше число: ${minNumber}`)
+                break
+              }
+            }
           </script>
         </div>
       </div>

@@ -22,8 +22,29 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 10</span></div>
           <div class="main__item">
+            Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
           </div>
           <script>
+            const startNumber = 5
+            const endNumber = 15
+            let totalSum = 0
+            let count = 0
+            for (let i = startNumber; i <= endNumber; i++) {
+              if (i % 2 !== 0) {
+                totalSum += i
+                count++
+              }
+              if (count === 5) {
+                break
+              }
+            }
+            document.write(
+              `
+                <div>Початкове значення: ${startNumber}</div>
+                <div>Кінцеве значення: ${endNumber}</div>
+                <div>Сума всіх непарних чисел: ${totalSum}</div>
+              `
+            )
           </script>
         </div>
       </div>

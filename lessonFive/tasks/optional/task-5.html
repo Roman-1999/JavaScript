@@ -22,8 +22,27 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 5</span></div>
           <div class="main__item">
+            Вивести таблицю
+            <!--
+            1 2 3
+            4 5 6
+            7 8 9
+            -->
           </div>
           <script>
+            const maxRowNumber = 3
+            const maxColNumber = 3
+            document.write('<table>');
+            let counter = 1
+            for (let i = 1; i <= maxRowNumber; i++) {
+              document.write('<tr>')
+              for (let j = 1; j <= maxColNumber; j++) {
+                document.write(`<td>${counter}</td>`)
+                counter++
+              }
+              document.write('</tr>')
+            }
+            document.write('</table>')
           </script>
         </div>
       </div>

@@ -22,8 +22,25 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 13</span></div>
           <div class="main__item">
+            Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
           </div>
           <script>
+            const month = 12
+            let totalTemperature = 0
+            let validMonths = 0
+            for (let i = 1; i <= month; i++) {
+              let temperature = parseInt(prompt(`Введіть температуру для місяця ${i}:`));
+              if (!isNaN(temperature)) {
+                totalTemperature += temperature;
+                validMonths++;
+              }
+            }
+            if (validMonths === 0) {
+              document.write('<div>Ви не ввели жодної дійсної температури</div>')
+            } else {
+              let averageTemperature = totalTemperature / validMonths
+              document.write(`<div>Середня температура за рік: ${averageTemperature.toFixed(2)} градусів Цельсія.</div>`)
+            }
           </script>
         </div>
       </div>

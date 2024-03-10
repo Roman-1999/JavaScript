@@ -22,8 +22,25 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 14</span></div>
           <div class="main__item">
+            Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів.
+            Знайти загальну величину прибутку та вивести величину прибутку протягом кожного окремого тижня.
           </div>
           <script>
+            const weekNumber = parseInt(prompt('Введіть кількість тижнів'))
+            const daysInWeek = 7
+            let totalProfit = 0
+            for (let week = 1; week <= weekNumber; week++) {
+              let weekProfit = 0
+              for (let day = 1; day <= daysInWeek; day++) {
+                let profit = Math.random() * 1000
+                document.write(`<div>Кількість зароблених грошей ${profit.toFixed(2)} за ${day} день тижня ${week}</div>`)
+                weekProfit += profit
+              }
+              document.write(`<div>Всього зароблено за ${week} тиждень: ${weekProfit.toFixed(2)} грн</div>`)
+              totalProfit += weekProfit
+            }
+            document.write(`<div>За всі тижні зароблено: ${totalProfit.toFixed(2)} грн</div>`)
+
           </script>
         </div>
       </div>

@@ -22,8 +22,14 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 2</span></div>
           <div class="main__item">
+            Вивести на екран 8 кнопок з написом “Hello”.
           </div>
           <script>
+            const maxNumber = 8
+            const textButton = "Hello"
+            for (let i = 0; i < maxNumber; i++) {
+              document.write(`<button style="display:block" type="button">${textButton}</button>`)
+            }
           </script>
         </div>
       </div>

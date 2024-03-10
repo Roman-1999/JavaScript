@@ -22,8 +22,30 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 8</span></div>
           <div class="main__item">
+            Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
           </div>
           <script>
+            const userNumber = parseInt(prompt("Введіть число, яке ви хочете, щоб комп'ютер вгадав:"))
+            const maxAttempts = 3;
+            let attempts = 0;
+            let guessed = false;
+            while (attempts < maxAttempts && !guessed) {
+              let computerGuess = Math.floor(Math.random() * 100) + 1;
+              let confirmation = confirm(`Комп'ютер вгадав число ${computerGuess}?`);
+              if (confirmation) {
+                if (computerGuess === userNumber) {
+                  alert("Комп'ютер вгадав число!");
+                  guessed = true;
+                } else {
+                  attempts++;
+                }
+              } else {
+                attempts++;
+              }
+              if (attempts === maxAttempts && !guessed) {
+                alert("Комп'ютер використав усі свої спроби і не вгадав число.");
+              }
+            }
           </script>
         </div>
       </div>

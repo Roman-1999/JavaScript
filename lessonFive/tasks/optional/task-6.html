@@ -22,8 +22,33 @@
           <a href="../../index.html">Повернутися назад</a>
           <div class="main__title main__title--small">Задача 6</span></div>
           <div class="main__item">
+            Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+            <!--
+            1 2 3      10 11 12      19 20 21
+            4 5 6      13 14 15      22 23 24
+            7 8 9      16 17 18      25 26 27
+            -->
           </div>
           <script>
+            const maxTableNumber = 3
+            const maxRowNumber = 3
+            const maxColNumber = 3
+            let repeatTable = 1
+
+            for (let table = 1; table <= maxTableNumber; table++) {
+              document.write('<table>')
+              let counter = (repeatTable - 1) * maxRowNumber * maxColNumber + 1
+              for (let i = 1; i <= maxRowNumber; i++) {
+                document.write('<tr>')
+                for (let j = 1; j <= maxColNumber; j++) {
+                  document.write(`<td>${counter}</td>`)
+                  counter++
+                }
+                document.write('</tr>')
+              }
+              document.write('</table>')
+              repeatTable++
+            }
           </script>
         </div>
       </div>
