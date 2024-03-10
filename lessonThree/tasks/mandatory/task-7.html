@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Алгоритми розгалуження | Завдання 7</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 7</span></div>
+          <div class="main__item">
+            З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+          </div>
+          <script>
+            const monthNumber = parseInt(prompt('Введіть номер місяця (1-12)'))
+            let result
+
+            switch (monthNumber) {
+              case 12:
+              case 1:
+              case 2:
+                result = 'Зима'
+                break
+              case 3:
+              case 4:
+              case 5:
+                result = 'Весна'
+                break
+              case 6:
+              case 7:
+              case 8:
+                result = 'Літо'
+                break
+              case 9:
+              case 10:
+              case 11:
+                result = 'Осінь'
+                break
+              default:
+                result = 'Невідомий місяць'
+            }
+
+            const resultElement = document.createElement('div')
+            resultElement.textContent = result
+            document.body.appendChild(resultElement)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

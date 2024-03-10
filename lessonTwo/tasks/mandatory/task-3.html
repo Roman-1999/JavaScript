@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Лінійні алгоритми | Завдання 3</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 3</span></div>
+          <div class="main__item">
+            Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
+          </div>
+          <script>
+            const countProduct = parseFloat(prompt("Введіть кількість продуктів"))
+            const priceProduct = parseFloat(prompt("Введіть ціну за одиницю продукта"))
+            let totalPrice = countProduct * priceProduct
+            let totalPdv = totalPrice + ((totalPrice * 5) / 100)
+            document.write(
+              `
+          <div>Кількість продуктів - ${countProduct} грн</div>
+          <div>Ціна за одиницю продукта - ${priceProduct.toFixed(2)} грн</div>
+          <div>Повна ціна за весь продукт складає - ${totalPrice.toFixed(2)} грн</div>
+          <div>А з урахуванням 5% ПДВ - ${totalPdv.toFixed(2)} грн</div>
+          `
+            )
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

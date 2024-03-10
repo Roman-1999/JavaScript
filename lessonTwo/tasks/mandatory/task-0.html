@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Лінійні алгоритми | Завдання 0</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 0</span></div>
+          <div class="main__item">
+            <ul class="">
+              <li>Вираз №1 -> S_1=a+12+b</li>
+              <li>Вираз №2 -> S_2=√((a+b)/2a)</li>
+              <li>Вираз №3 -> S_3=∛((a+b)c)</li>
+              <li>Вираз №4 -> S_4=sin⁡(a/(-b))</li>
+            </ul>
+          </div>
+          <script>
+            let a = parseInt(prompt("Введіть чило а"))
+            let b = parseInt(prompt("Введіть чило b"))
+            let c = parseInt(prompt("Введіть чило c"))
+            const num = 2;
+            let sumTaskOne = a + 12 + b
+            let sumTaskTwo = Math.sqrt((a + b) / (num * a))
+            let sumTaskThree = Math.cbrt((a + b) * c)
+            let sumTaskFour = Math.sin(a / (-b))
+            document.write(
+              `
+                  <div>Ваше число a = ${a}</div>
+                  <div>Ваше число b = ${b}</div>
+                  <div>Ваше число c = ${c}</div>
+                  `
+            )
+            document.write(
+              `
+                  <div>Результатом обчислення для виразу №1 буде число ${sumTaskOne}</div>
+                  <div>Результатом обчислення для виразу №2 буде число ${sumTaskTwo.toFixed(3)}</div>
+                  <div>Результатом обчислення для виразу №3 буде число ${sumTaskThree.toFixed(3)}</div>
+                  <div>Результатом обчислення для виразу №4 буде число ${sumTaskFour.toFixed(3)}</div>
+                  `
+            )
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

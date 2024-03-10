@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Лінійні алгоритми | Завдання 6</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 6</span></div>
+          <div class="main__item">
+            З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+            Обчислити вартість кожного товару окремо та загальну вартість.
+            Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+          </div>
+          <script>
+            const check = document.getElementById('check');
+
+            const productOnePrice = parseFloat(prompt('Введіть вартість першого товару', '45.32'));
+            const productOneCount = parseInt(prompt('Введіть кількість першого товару', '21'));
+
+            const productTwoPrice = parseFloat(prompt('Введіть вартість другого товару', '76.51'));
+            const productTwoCount = parseInt(prompt('Введіть кількість другого товару', '98'));
+
+            const productThreePrice = parseFloat(prompt('Введіть вартість третього товару', '21.98'));
+            const productThreeCount = parseInt(prompt('Введіть кількість третього товару', '123'));
+
+            let totalOne, totalTwo, totalThree, totalPrice;
+            totalOne = productOnePrice * productOneCount
+            totalTwo = productTwoPrice * productTwoCount
+            totalThree = productThreePrice * productThreeCount
+
+            totalPrice = totalOne + totalTwo + totalThree;
+            document.write(
+              `
+                    <div>
+                        <span>Перший товар:</span>
+                        <span>${productOnePrice} грн x ${productOneCount} шт = ${totalOne.toFixed(2)} грн</span>
+                    </div>
+                    <div>
+                        <span>Другий товар:</span>
+                        <span>${productTwoPrice} грн x ${productTwoCount} шт = ${totalTwo.toFixed(2)} грн</span>
+                    </div>
+                    <div>
+                        <span>Третій товар:</span>
+                        <span>${productThreePrice} грн x ${productThreeCount} шт = ${totalThree.toFixed(2)} грн</span>
+                    </div>
+                    <div>
+                        <span>Загальна вартість:</span>
+                        <span>${totalPrice.toFixed(2)} грн</span>
+                    </div>
+                  `
+            )
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

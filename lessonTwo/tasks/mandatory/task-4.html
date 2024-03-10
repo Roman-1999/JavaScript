@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Лінійні алгоритми | Завдання 4</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 4</span></div>
+          <div class="main__item">
+            Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+          </div>
+          <script>
+            const lengthСentimeters = parseFloat(prompt("Введіть бажану довжину"))
+            let lengthMeters = lengthСentimeters / 100
+            let lengthKilometers = lengthСentimeters / 100000
+            document.write(
+              `
+          <div>Ваша бажана довжина складає - ${lengthСentimeters} сантиметрів</div>
+          <div>Переводжу в метри і це - ${lengthMeters} метрів</div>
+          <div>Переводжу в кілометри і це - ${lengthKilometers} кілометрів</div>
+          `
+            )
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

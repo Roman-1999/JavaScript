@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Алгоритми розгалуження | Завдання 4</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 4</span></div>
+          <div class="main__item">
+            З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку,
+            школярем, студентом, працівником, пенсіонером).
+          </div>
+          <script>
+            const age = parseInt(prompt('Введіть свій вік'))
+            let result
+
+            if (age < 3) {
+              result = 'Ви дитина у садочку'
+            } else if (age < 7) {
+              result = 'Ви школяр'
+            } else if (age < 18) {
+              result = 'Ви студент'
+            } else if (age < 65) {
+              result = 'Ви працівник'
+            } else {
+              result = 'Ви пенсіонер'
+            }
+
+            const resultElement = document.createElement('div')
+            resultElement.textContent = result
+            document.body.appendChild(resultElement)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

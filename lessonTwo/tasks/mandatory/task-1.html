@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Лінійні алгоритми | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+          </div>
+          <script>
+            let a = parseFloat(prompt("Введіть чило а"))
+            let b = parseFloat(prompt("Введіть чило b"))
+            let sum = a + b
+            let multi = a * b
+            let divide = a / b
+            document.write(
+              `
+        <div>Ваше число a = ${a}</div>
+        <div>Ваше число b = ${b}</div>
+        `
+            )
+            document.write(
+              `
+          <table>
+            <tr>
+              <th>Сума ${a} та ${b}</th>
+              <td>${sum}</td>
+            </tr>
+            <tr>
+              <th>Множення ${a} та ${b}</th>
+              <td>${multi}</td>
+            </tr>
+            <tr>
+              <th>Ділення ${a} та ${b}</th>
+              <td>${divide}</td>
+            </tr>
+          </table
+        `
+            )
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
