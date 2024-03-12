@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 2</span></div>
+          <div class="main__item">
+            Створити функцію, яка за номером місяця повертає його назву.
+          </div>
+          <script>
+            function getByMonth(monthNumber) {
+              switch (monthNumber) {
+                case 1: return 'Січень'
+                case 2: return 'Лютий'
+                case 3: return 'Березень'
+                case 4: return 'Квітень'
+                case 5: return 'Травень'
+                case 6: return 'Червень'
+                case 7: return 'Липень'
+                case 8: return 'Серпень'
+                case 9: return 'Вересень'
+                case 10: return 'Жовтий'
+                case 11: return 'Лютий'
+                case 12: return 'Грудень'
+                default:
+                  return 'невідомий місяць'
+              }
+            }
+            const month = parseInt(prompt('Вкажіть номер для визначення назви місяця'))
+            document.write(`Ваш введений номер - ${month}, а це відповідає місяцю - ${getByMonth(month)}`)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 8</span></div>
+          <div class="main__item">
+            Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень
+            (шляхи до зображень передаються у функцію)
+          </div>
+          <script>
+            function randomImg(path1, path2, path3, path4) {
+              let randomNumber = Math.floor(Math.random() * 4)
+              let selectedPath
+              console.log(randomNumber)
+              switch (randomNumber) {
+                case 0:
+                  selectedPath = path1
+                  break
+                case 1:
+                  selectedPath = path2
+                  break
+                case 2:
+                  selectedPath = path3
+                  break
+                case 3:
+                  selectedPath = path4
+                  break
+              }
+              return selectedPath;
+            }
+            const pathImageOne = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Photographic_lenses_front_view.jpg/1200px-Photographic_lenses_front_view.jpg'
+            const pathImageTwo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYpeajKFtHW5t3XJbgW2C3rtZQ1zub-3Tcnw&usqp=CAU'
+            const pathImageThree = 'https://imageio.forbes.com/specials-images/imageserve/648aaa9fac6d92c810b12f50/Why-Companies-Are-Vastly-Underprepared-For-The-Risks-Posed-By-AI/960x0.jpg?height=406&width=711&fit=bounds'
+            const pathImageFour = 'data:image/jpeg;base64,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'
+            document.write(`Рандомне зображення: <img src="${randomImg(pathImageOne, pathImageTwo, pathImageThree, pathImageFour)}">`);
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 9</span></div>
+          <div class="main__item">
+            Створити функцію, яка виводить банер (у функцію передаються: зображення,
+            заголовок та посилання, куди переходимо при кліку на зображення
+            (тег img повине знаходитись у середині тега a: <!-- <a> <img src=”шлях”> </a> -->
+          </div>
+          <script>
+            function showBanner(src, title, link) {
+              document.write(`
+                <a href="${link}">
+                  ${title}
+                  <img src=${src}>   
+                </a>
+              `)
+            }
+            const src = prompt('Введіть шлях до картинки(посилання на картинку)',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Photographic_lenses_front_view.jpg/290px-Photographic_lenses_front_view.jpg')
+            const title = prompt('Введіть заголовок для посилання', 'Camera lens')
+            const link = prompt('Введіть бажане посилання за яким буде здійснено перехід', 'https://en.wikipedia.org/wiki/Camera_lens')
+            showBanner(src, title, link)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 7</span></div>
+          <div class="main__item">
+            Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців
+            (таблиця заповнюється заданим фіксованим повідомленням).
+          </div>
+          <script>
+            function createTable(rows, columns, message) {
+              let tableHTML = '<table>'
+              for (let i = 0; i < rows; i++) {
+                tableHTML += '<tr>'
+                for (let j = 0; j < columns; j++) {
+                  tableHTML += '<td>' + message + '</td>'
+                }
+                tableHTML += '</tr>'
+              }
+              tableHTML += '</table>'
+              document.write(tableHTML)
+            }
+            const rowsNumber = parseInt(prompt('Введіть кількість рядків'))
+            const columnsNumber = parseInt(prompt('Введіть кількість стовпців'))
+            const textMessage = prompt('Введіть ваш текст')
+            createTable(rowsNumber, columnsNumber, textMessage);
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

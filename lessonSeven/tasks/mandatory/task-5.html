@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 5</span></div>
+          <div class="main__item">
+            Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів:
+            - кількість парних
+            - кількість додатних
+            - кількість більших за 100.
+          </div>
+          <script>
+            function getResults(a, b, c) {
+              let evenCount = 0
+              let positiveCount = 0
+              let greaterThan100Count = 0
+
+              if (a % 2 === 0) evenCount++
+              if (b % 2 === 0) evenCount++
+              if (c % 2 === 0) evenCount++
+
+              if (a > 0) positiveCount++
+              if (b > 0) positiveCount++
+              if (c > 0) positiveCount++
+
+              if (a > 100) greaterThan100Count++
+              if (b > 100) greaterThan100Count++
+              if (c > 100) greaterThan100Count++
+
+              document.write(`<div>Кількість парних: ${evenCount}</div>`)
+              document.write(`<div>Кількість додатніх: ${positiveCount}</div>`)
+              document.write(`<div>Кількість більших за число 100: ${greaterThan100Count}</div>`)
+            }
+            let a = parseInt(prompt('Введіть перше число'))
+            let b = parseInt(prompt('Введіть друге число'))
+            let c = parseInt(prompt('Введіть третє число'))
+            document.write(`Ваші числа - ${a}, ${b}, ${c}`)
+            getResults(a, b, c)
+
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

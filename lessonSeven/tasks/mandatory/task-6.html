@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 6</span></div>
+          <div class="main__item">
+            Створити окремі функції, які переводять:
+            - Сантиметри у дюйми;
+            - Кілограми у фунти;
+            - Кілометри у милі.
+          </div>
+          <script>
+            function getResults(a) {
+              function calcCntmToInc(value) {
+                const inches = 0.3937
+                return value * inches
+              }
+
+              function calcKgToLb(value) {
+                const pounds = 2.2046
+                return value * pounds
+              }
+
+              function calcMiToKm(value) {
+                const km = 0.62137
+                return value * km
+              }
+
+              document.write(`<div>${a} сантиметрів дорівнюють ${calcCntmToInc(a).toFixed(4)} дюймів</div>`)
+              document.write(`<div>${a} кілограмів дорівнюють ${calcKgToLb(a).toFixed(4)} фунтів</div>`)
+              document.write(`<div>${a} кілометрів дорівнюють ${calcMiToKm(a).toFixed(4)} миль</div>`)
+            }
+
+            let a = parseFloat(prompt('Введіть число'))
+            document.write(`<div>Ви ввели число ${a}</div>`)
+            getResults(a)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

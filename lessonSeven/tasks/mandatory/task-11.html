@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 11</span></div>
+          <div class="main__item">
+            Дано покази температур (довільна кількість). Розробити функцію, яка дозволить
+            знайти середнє значення для додатних показів температури.
+          </div>
+          <script>
+            function getAvgPosTemp(value) {
+              let sum = 0, count = 0
+              for (let i = 1; i <= value; i++) {
+                let temperature = parseFloat(prompt(`Введіть ${i}-й показник температури:`))
+                if (!isNaN(temperature) && temperature > 0) {
+                  sum += temperature
+                  count++
+                }
+              }
+              let avg = sum / count
+              document.write(`Середнє значення для додатніх показів температури: ${avg.toFixed(1)}`)
+            }
+            let numberIndTemp = parseInt(prompt('Введіть кількість показів температури:'))
+            getAvgPosTemp(numberIndTemp)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Створити функцію, яка за номером місяця повертає пору року, до якої
+            відноситься цей місяць.
+          </div>
+          <script>
+            function getSeasonByMonth(monthNumber) {
+              switch (monthNumber) {
+                case 12:
+                case 1:
+                case 2:
+                  return 'зима'
+                case 3:
+                case 4:
+                case 5:
+                  return 'весна'
+                case 6:
+                case 7:
+                case 8:
+                  return 'літо'
+                case 9:
+                case 10:
+                case 11:
+                  return 'осінь'
+                default:
+                  return 'невідомий місяць'
+              }
+            }
+            const month = parseInt(prompt('Вкажіть номер місяця'))
+            document.write(`Позначення пори року для вашого числа ${month} - ${getSeasonByMonth(month)}`)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

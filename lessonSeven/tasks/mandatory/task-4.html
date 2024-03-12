@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 4</span></div>
+          <div class="main__item">
+            Створити окремі функції, які для 4 чисел знаходять:
+            - Суму
+            - Добуток
+            - Середнє арифметичне
+            - Мінімальне значення
+          </div>
+          <script>
+            function getResult(a, b, c, d) {
+              function calcSum(a, b, c, d) {
+                return a + b + c + d;
+              }
+              function calcDiv(a, b, c, d) {
+                return a * b * c * d;
+              }
+              function calcAvg(a, b, c, d) {
+                return calcSum(a, b, c, d) / 4;
+              }
+              function getMin(a, b, c, d) {
+                let min = Infinity
+                if (a < min) {
+                  min = a
+                }
+                if (b < min) {
+                  min = b
+                }
+                if (c < min) {
+                  min = c
+                }
+                if (d < min) {
+                  min = d
+                }
+                return min;
+              }
+              document.write(`<div>Сума: ${calcSum(a, b, c, d)}`);
+              document.write(`<div>Добуток: ${calcDiv(a, b, c, d)}`);
+              document.write(`<div>Середнє арифметичне: ${calcAvg(a, b, c, d)}`);
+              document.write(`<div>Мінімальне значення: ${getMin(a, b, c, d)}`);
+            }
+            const a = parseInt(prompt('Введіть перше число'))
+            const b = parseInt(prompt('Введіть друге число'))
+            const c = parseInt(prompt('Введіть третє число'))
+            const d = parseInt(prompt('Введіть четверте число'))
+            document.write(`Ваші числа - ${a}, ${b}, ${c}, ${d}`)
+            getResult(a, b, c, d);
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
