@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 2</span></div>
+          <div class="main__item">
+            З клавіатури вводяться числа до тих пір, поки послідовність
+            є зростаючою або спадною.
+          </div>
+          <script>
+            let prevNumber = parseInt(prompt("Введіть перше число:"))
+            let sequenceType = null
+            while (true) {
+              let input = parseInt(prompt("Введіть наступне число:"))
+              if (isNaN(input)) {
+                alert("Введено нечислове значення. Програма завершує роботу.")
+                break;
+              }
+              if (input <= prevNumber) {
+                if (sequenceType === null) {
+                  sequenceType = "decreasing"
+                } else if (sequenceType !== "decreasing") {
+                  alert("Послідовність не є однотипною. Програма завершує роботу.")
+                  break
+                }
+              } else {
+                if (sequenceType === null) {
+                  sequenceType = "increasing"
+                } else if (sequenceType !== "increasing") {
+                  alert("Послідовність не є однотипною. Програма завершує роботу.")
+                  break
+                }
+              }
+              prevNumber = input
+            }
+            if (sequenceType === "increasing") {
+              alert("Була введена зростаюча послідовність чисел.")
+            } else if (sequenceType === "decreasing") {
+              alert("Була введена спадна послідовність чисел.")
+            } else {
+              alert("Не вдалося визначити тип послідовності.")
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

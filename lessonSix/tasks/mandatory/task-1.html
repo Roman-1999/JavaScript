@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Написати програму виведення на екран кожного символу
+            латинського алфавіту та поруч з кожним з них символу,
+            що передує йому та що слідує за ним.
+          </div>
+          <script>
+            const startChar = 'a'.charCodeAt(0)
+            const endChar = 'z'.charCodeAt(0)
+            for (let i = startChar; i <= endChar; i++) {
+              const currentChar = String.fromCharCode(i);
+              document.write(
+                `
+                  <div>
+                    Символ: ${currentChar}, 
+                    Попередній: ${i > startChar ? String.fromCharCode(i - 1) : '-'}, 
+                    Наступний: ${i < endChar ? String.fromCharCode(i + 1) : '-'}
+                  </div>
+                `);
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

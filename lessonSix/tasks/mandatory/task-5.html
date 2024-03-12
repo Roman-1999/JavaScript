@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 5</span></div>
+          <div class="main__item">
+            Щоденно спортзал відвідує певна кількість людей. Користувач вводить такі дані:
+            скільки людей відвідало спортзал за день та вік кожного відвідувача.
+            Потрібно вивести вік найстаршого та наймолодшого відвідувачів,
+            а також середній вік всіх відвідувачів спортзалу за день.
+          </div>
+          <script>
+            const totalPeople = parseInt(prompt('Введіть кількість людей'))
+            let maxAge = 0, minAge = 0, averageAge = 0
+            for (let i = 1; i <= totalPeople; i++) {
+              let agePeople = Math.floor(Math.random() * 100)
+              if (agePeople > maxAge) maxAge = agePeople
+              if (i == 1) minAge = agePeople
+              else if (agePeople < minAge) minAge = agePeople
+              averageAge += agePeople
+            }
+            document.write(`<div>Максимальний вік: ${maxAge} років</div>`)
+            document.write(`<div>Мінімальний вік: ${minAge} років</div>`)
+            document.write('<div>Середній вік: ' + (averageAge / totalPeople).toFixed(2) + ' роки</div>')
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
