@@ -30,43 +30,24 @@
             let sum = 0
             let firstIndex = -1
             let lastIndex = -1
-            let tempNumber = number
-            let index = 0
-            while (tempNumber > 0) {
-              let digit = tempNumber % 10
-              if (digit === 7) {
-                firstIndex = index
-                break
+            for (let i = 0; i < number.toString().length; i++) {
+              if (number.toString()[i] === '7') {
+                if (firstIndex === -1) {
+                  firstIndex = i
+                } else {
+                  lastIndex = i
+                  break
+                }
               }
-              tempNumber = Math.floor(tempNumber / 10)
-              index++
             }
             if (firstIndex !== -1) {
-              tempNumber = number
-              index = 0
-              while (tempNumber > 0) {
-                let digit = tempNumber % 10
-                if (digit === 7) {
-                  lastIndex = index
-                }
-                tempNumber = Math.floor(tempNumber / 10)
-                index++
-              }
-              tempNumber = number
-              index = 0
-              while (tempNumber > 0) {
-                let digit = tempNumber % 10
-                if (index > firstIndex && index < lastIndex) {
-                  sum += digit
-                }
-                tempNumber = Math.floor(tempNumber / 10)
-                index++
+              for (let i = firstIndex + 1; i < lastIndex; i++) {
+                sum += parseInt(number.toString()[i])
               }
               alert(`Сума цифр між першою та останньою цифрою 7: ${sum}`)
             } else {
               alert('У числі немає цифри 7')
             }
-
           </script>
         </div>
       </div>

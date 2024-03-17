@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 3</span></div>
+          <div class="main__item">
+            Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі
+            дозволити користувач (кількість грошей задається).
+            <!--
+            Приклад збереження даних
+            let productsPrices = [1000, 20, 31]
+            let productsTitles = [‘cheese’, ‘juice’, ‘bread’]
+            -->
+          </div>
+          <script>
+            let totalMoney = parseFloat(prompt('Введіть кількість грошей'))
+            let productsPrices = [1000, 20, 31]
+            let productsTitles = ['cheese', 'juice', 'bread']
+            document.write(`<div>У вас ${totalMoney} грн</div>`)
+            for (let i = 0; i < productsPrices.length; i++) {
+              let price = productsPrices[i]
+              if (totalMoney >= price) {
+                document.write(`<div>Ви можете придбати ${productsTitles[i]} за ${price} гривень</div>`)
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

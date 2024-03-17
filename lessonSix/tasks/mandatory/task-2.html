@@ -26,38 +26,28 @@
             є зростаючою або спадною.
           </div>
           <script>
-            let prevNumber = parseInt(prompt("Введіть перше число:"))
+            let prevNumber = parseFloat(prompt("Введіть перше число:"))
             let sequenceType = null
             while (true) {
-              let input = parseInt(prompt("Введіть наступне число:"))
-              if (isNaN(input)) {
+              let nextNumber = parseFloat(prompt("Введіть наступне число:"))
+              if (isNaN(nextNumber)) {
                 alert("Введено нечислове значення. Програма завершує роботу.")
-                break;
+                break
               }
-              if (input <= prevNumber) {
-                if (sequenceType === null) {
-                  sequenceType = "decreasing"
-                } else if (sequenceType !== "decreasing") {
-                  alert("Послідовність не є однотипною. Програма завершує роботу.")
-                  break
-                }
+              if ((nextNumber <= prevNumber && (sequenceType === null || sequenceType === "decreasing")) ||
+                (nextNumber > prevNumber && (sequenceType === null || sequenceType === "increasing"))) {
+                sequenceType = (nextNumber <= prevNumber) ? "decreasing" : "increasing"
               } else {
-                if (sequenceType === null) {
-                  sequenceType = "increasing"
-                } else if (sequenceType !== "increasing") {
-                  alert("Послідовність не є однотипною. Програма завершує роботу.")
-                  break
-                }
+                alert("Послідовність не є однотипною. Програма завершує роботу.")
+                break
               }
-              prevNumber = input
+              prevNumber = nextNumber
             }
-            if (sequenceType === "increasing") {
-              alert("Була введена зростаюча послідовність чисел.")
-            } else if (sequenceType === "decreasing") {
-              alert("Була введена спадна послідовність чисел.")
-            } else {
-              alert("Не вдалося визначити тип послідовності.")
-            }
+            let message =
+              sequenceType === "increasing" ? "зростаюча" :
+                sequenceType === "decreasing" ? "спадна" :
+                  "не вдалося визначити"
+            alert(`Була введена ${message} послідовність чисел.`);
           </script>
         </div>
       </div>

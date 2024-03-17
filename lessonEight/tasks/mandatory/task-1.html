@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати
+            до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку),
+            хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+          </div>
+          <script>
+            const MIN_VALUE = 1, MAX_VALUE = 5
+            const N = parseInt(prompt('Введіть кількість предметів'))
+            function generateRandomNumber() {
+              return parseFloat(MIN_VALUE + Math.floor(Math.random() * (MAX_VALUE - MIN_VALUE + 1)))
+            }
+            function getArray(arrayLength) {
+              const array = []
+              for (let i = 0; i < arrayLength; i++) {
+                array.push(generateRandomNumber())
+              }
+              const minScore = getMinScore(array)
+              let category = getCategoryByMinScore(minScore)
+              document.write(`<div>Масив з оцінками: ${array}</div>`)
+              document.write(`<div>Учень є ${category}</div>`)
+              return category
+            }
+            function getMinScore(scoresList) {
+              let min = Infinity
+              for (let i = 1; i < scoresList.length; i++) {
+                if (scoresList[i] < min) min = scoresList[i]
+              }
+              return min
+            }
+            function getCategoryByMinScore(minScore) {
+              let category
+              switch (minScore) {
+                case 5:
+                  category = 'відмінником'
+                  break
+                case 4:
+                  category = 'хорошистом'
+                  break
+                case 3:
+                  category = 'трієчником'
+                  break
+                default:
+                  category = 'двієчником'
+                  break
+              }
+              return category
+            }
+            getArray(N)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

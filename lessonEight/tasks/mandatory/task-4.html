@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 4</span></div>
+          <div class="main__item">
+            Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються
+            випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати
+            номери елементів (поки він не відмовиться). Знаходити сумарний виграш.
+
+          </div>
+          <script>
+            function getRandomArray(N) {
+              const MIN_RANDOM_VALUE = -500, MAX_RANDOM_VALUE = 500
+              let result = []
+              for (let i = 0; i < N; i++) {
+                result.push(MIN_RANDOM_VALUE + Math.floor(Math.random() * (MAX_RANDOM_VALUE - MIN_RANDOM_VALUE + 1)))
+              }
+              document.write(`Сгенерований масив містить наступні суми ${result}`)
+              return result
+            }
+            const lengthArray = parseInt(prompt('Введіть довжину масиву для гри'))
+            const randomArray = getRandomArray(lengthArray)
+            let userPositions = []
+            let userChoice = true
+            let sum = 0
+            while (userChoice && userPositions.length < lengthArray) {
+              let position = parseInt(prompt(`Оберіть позицію від 1 до ${lengthArray} для отримання певної суми. Введіть 0, щоб підрахувати ваш виграш.`))
+              if (position === 0) {
+                userChoice = false
+              } else if (position >= 1 && position <= lengthArray && !userPositions.includes(position)) {
+                userPositions.push(position)
+                let selectedNumber = randomArray[position - 1]
+                document.write(`<p>Ви обрали номер ${position}. Вибраний номер містить таку суму виграшу: ${selectedNumber}</p>`)
+                sum += selectedNumber
+              } else {
+                alert("Невірне значення. Будь ласка, введіть коректну позицію.")
+              }
+            }
+            document.write(`<div>Ви виграли: ${sum}</div>`)
+            if (sum < 0) {
+              document.write("<div>Нажаль загальна сума виграшу менша за 0. Тому ви нічого не виграли</div>")
+            }
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

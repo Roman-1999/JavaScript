@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 2</span></div>
+          <div class="main__item">
+            Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+            • починаються на букву «А»;
+            • перша і остання літери співпадають;
+            • складаються з більше ніш 5 символів;
+          </div>
+          <script>
+            function getResult(list) {
+              let counterWithA = 0, counterSymbol = 0, counterLength = 0
+              for (let i = 0; i < list.length; i++) {
+                let plate = list[i]
+                if (plate[0] === 'A') {
+                  counterWithA++
+                }
+                if (plate[0] === plate[plate.length - 1]) {
+                  counterSymbol++
+                }
+                if (plate.length > 5) {
+                  counterLength++
+                }
+              }
+              return [counterWithA, counterSymbol, counterLength]
+            }
+            let licensePlates = ['AO345646', 'AB45665A', 'XA345646', 'IA345646', 'A12321A']
+            document.write(`Кількість номерів, які починаються на букву «А»: ${getResult(licensePlates)[0]}<br>`);
+            document.write(`Кількість номерів, де перша і остання літери співпадають: ${getResult(licensePlates)[1]}<br>`);
+            document.write(`Кількість номерів, які складаються з більше ніж 5 символів: ${getResult(licensePlates)[2]}<br>`);
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
