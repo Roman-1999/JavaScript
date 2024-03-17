@@ -46,19 +46,19 @@
               }
               return array
             }
-            function calculateYearTotal(array) {
+            function calcYearTotal(array) {
               for (let i = 0; i < PAY_MONEY_IN_YEAR; i++) {
                 total += array[i]
               }
               return total
             }
-            function calculateHalfYearTotal(array, start, end) {
+            function calcHalfYearTotal(array, start, end) {
               for (let i = start; i < end; i++) {
                 total += array[i]
               }
               return total
             }
-            function calculateSeasonStartMonthsTotal(array) {
+            function calcSeasonStartMonthsTotal(array) {
               for (let i = 0; i < PAY_MONEY_IN_YEAR; i++) {
                 if ((i + 1 >= 3 && i + 1 <= 5) || (i + 1 >= 6 && i + 1 <= 8) || (i + 1 >= 9 && i + 1 <= 11)) {
                   total += array[i]
@@ -66,7 +66,7 @@
               }
               return total
             }
-            function calculateQuarterTotal(array, quarters) {
+            function calcQuarterTotal(array, quarters) {
               for (let j = 0; j < quarters.length; j++) {
                 let quarter = quarters[j]
                 for (let i = (quarter - 1) * 3; i < quarter * 3; i++) {
@@ -75,7 +75,7 @@
               }
               return total
             }
-            function calculateEvenMonthsTotal(array) {
+            function calcEvenMonthsTotal(array) {
               for (let i = 1; i <= PAY_MONEY_IN_YEAR; i++) {
                 if (i % 2 === 0) {
                   total += array[i - 1]
@@ -87,13 +87,13 @@
               for (let i = 0; i < PAY_MONEY_IN_YEAR; i++) {
                 document.write(`<div>За ${i + 1} місяць пішло ${array[i]} грошей</div>`)
               }
-              document.write(`<div>За весь рік: ${calculateYearTotal(array).toFixed(2)} грошей</div>`)
-              document.write(`<div>У першій половині року: ${calculateHalfYearTotal(array, 0, 6).toFixed(2)} грошей</div>`)
-              document.write(`<div>У другій половині року: ${calculateHalfYearTotal(array, 6, PAY_MONEY_IN_YEAR).toFixed(2)} грошей</div>`)
-              document.write(`<div>За літо: ${calculateHalfYearTotal(array, 5, 9).toFixed(2)} грошей</div>`)
-              document.write(`<div>За ІІ квартал: ${calculateQuarterTotal(array, [2, 3]).toFixed(2)} грошей</div>`)
-              document.write(`<div>За парні місяці: ${calculateEvenMonthsTotal(array).toFixed(2)} грошей</div>`)
-              document.write(`<div>За місяці, які є початковими у сезоні: ${calculateSeasonStartMonthsTotal(array).toFixed(2)} грошей</div>`)
+              document.write(`<div>За весь рік: ${calcYearTotal(array).toFixed(2)} грошей</div>`)
+              document.write(`<div>У першій половині року: ${calcHalfYearTotal(array, 0, 6).toFixed(2)} грошей</div>`)
+              document.write(`<div>У другій половині року: ${calcHalfYearTotal(array, 6, PAY_MONEY_IN_YEAR).toFixed(2)} грошей</div>`)
+              document.write(`<div>За літо: ${calcHalfYearTotal(array, 5, 9).toFixed(2)} грошей</div>`)
+              document.write(`<div>За ІІ квартал: ${calcQuarterTotal(array, [2, 3]).toFixed(2)} грошей</div>`)
+              document.write(`<div>За парні місяці: ${calcEvenMonthsTotal(array).toFixed(2)} грошей</div>`)
+              document.write(`<div>За місяці, які є початковими у сезоні: ${calcSeasonStartMonthsTotal(array).toFixed(2)} грошей</div>`)
             }
             const array = getArray()
             displayResults(array)
