@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 2</span></div>
+          <div class="main__item">
+            Користувач вводить кількість елементів. Створити масив, у якому перша половина
+            заповнена 1-цями, а друга заповнена 7-ками.
+          </div>
+          <script>
+            const N = parseInt(prompt('Введіть кількість елементів масиву'))
+            let arr = []
+            for (let i = 0; i < N; i++) {
+              if (i < N / 2) {
+                arr.push(1)
+              } else {
+                arr.push(7)
+              }
+            }
+
+            document.write(`Ваш масив: [${arr}]`)
+
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 10</span></div>
+          <div class="main__item">
+            Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого податку у грн.
+            <!--Тут використовуйте що хочете для розв’язання-->
+          </div>
+          <script>
+            const MIN_VALUE = 1, MAX_VALUE = 2000
+            const N = parseInt(prompt('Введіть кількість елементів масиву'))
+            const PERCENT_VALUE = 0.2
+            let arr = []
+            for (let i = 0; i < N; i++) {
+              let randomNumber = (Math.random() * (MAX_VALUE - MIN_VALUE) + MIN_VALUE).toFixed(2)
+              arr.push(parseFloat(randomNumber))
+            }
+            let taxPaid = []
+            arr.forEach(el => {
+              taxPaid.push((el * PERCENT_VALUE).toFixed(2))
+            })
+            let newArr = arr.map((el, index) => (el + parseFloat(taxPaid[index])).toFixed(2))
+            document.write(`<div>Вхідний масив: [${arr}]</div>`)
+            document.write(`<div>Податок ${PERCENT_VALUE * 100}% на кожен продукт: [${taxPaid}]</div>`)
+            document.write(`<div>Нова ціна з урахуванням податку: [${newArr}]</div>`)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

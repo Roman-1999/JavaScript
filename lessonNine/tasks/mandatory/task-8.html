@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 8</span></div>
+          <div class="main__item">
+            Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+            <!--Тут використовуйте що хочете для розв’язання-->
+          </div>
+          <script>
+            function generateRandomLicensePlate() {
+              const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+              const digits = '0123456789'
+              let licensePlate = ''
+              for (let i = 0; i < 2; i++) {
+                licensePlate += letters.charAt(Math.floor(Math.random() * letters.length))
+              }
+              for (let i = 0; i < 4; i++) {
+                licensePlate += digits.charAt(Math.floor(Math.random() * digits.length))
+              }
+              for (let i = 0; i < 2; i++) {
+                licensePlate += letters.charAt(Math.floor(Math.random() * letters.length))
+              }
+
+              return licensePlate
+            }
+            const N = parseInt(prompt('Введіть кількість елементів масиву'))
+            let arr = []
+            for (let i = 0; i < N; i++) {
+              arr.push(generateRandomLicensePlate())
+            }
+            let newArray = arr.filter(letters => letters.charAt(0) === 'A')
+            document.write(`<div>Вхідний масив номерних знаків: [${arr}]</div>`)
+            document.write(`<div>Масив знаків, які починаються на А: [${newArray}]</div>`)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
