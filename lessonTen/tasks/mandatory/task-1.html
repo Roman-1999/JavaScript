@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
+            <ul class="list-task">
+              <li class="list-task__item">1) Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</li>
+              <li class="list-task__item">2) Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.</li>
+              <li class="list-task__item">3) Сформувати список з тих цін, які більші за попереднє значення</li>
+              <li class="list-task__item">4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального</li>
+              <li class="list-task__item">5) Підрахувати кількість змін цін</li>
+              <li class="list-task__item">6) Визначити, чи є ціна, що менше 1000</li>
+              <li class="list-task__item">7) Визначати, чи усі ціни більше за 1000</li>
+              <li class="list-task__item">8) Підрахувати кількість цін, що більше за 1000</li>
+              <li class="list-task__item">9) Підрахувати суму цін, що більше за 1000</li>
+              <li class="list-task__item">10) Знайти першу ціну, що більше за 1000</li>
+              <li class="list-task__item">11) Знайти індекс першої ціни, що більше за 1000</li>
+              <li class="list-task__item">12) Знайти останню ціну, що більше за 1000</li>
+              <li class="list-task__item">13) Знайти індекс останньої ціни, що більше за 1000</li>
+            </ul>
+          </div>
+          <script>
+            const MIN_VALUE_IN_ARRAY = 1, MAX_VALUE_IN_ARRAY = 10000
+            const LENGHT_LIST = 10
+            const DEFAULT_VALUE = 1000
+            let result = []
+
+            function generateRandomNumber() {
+              return Math.floor(Math.random() * (MAX_VALUE_IN_ARRAY - MIN_VALUE_IN_ARRAY) + MIN_VALUE_IN_ARRAY)
+            }
+
+            function createArrayList(n) {
+              let arr = []
+              for (let i = 1; i <= n; i++) {
+                let newNumber = generateRandomNumber()
+                arr.push(newNumber)
+              }
+              return arr
+            }
+
+            let listArray = createArrayList(LENGHT_LIST)
+            document.write(`<div>Ваш масив з ${LENGHT_LIST} цін на кожен цінний папір: [${listArray}]</div>`)
+
+            let task1 = () => {
+              result = listArray.filter((el) => el > DEFAULT_VALUE)
+              return result
+            }
+
+            let task2 = () => {
+              result = []
+              for (let i = 0; i < listArray.length; i++) {
+                if (listArray[i] > DEFAULT_VALUE) {
+                  result.push(i + " позиція")
+                }
+              }
+              return result
+            }
+
+            let task3 = () => {
+              return listArray.reduce((acc, currentPrice, currentIndex) => {
+                if (currentIndex > 0 && currentPrice > listArray[currentIndex - 1]) {
+                  acc.push(currentPrice)
+                }
+                return acc
+              }, []);
+            }
+
+            let task4 = () => {
+              let max = 0
+              result = []
+              for (let i = 0; i < listArray.length; i++) {
+                if (listArray[i] > max) {
+                  max = listArray[i]
+                }
+              }
+              for (let i = 0; i < listArray.length; i++) {
+                let percentage = (listArray[i] / max) * 100
+                result.push(percentage.toFixed(2) + "%")
+              }
+              return result
+            }
+
+            let task5 = () => {
+              let count = 0
+              result = listArray.reduce((prevElement, currentElement, currentIndex) => {
+                if (currentIndex < listArray.length - 1 && currentElement !== listArray[currentIndex + 1]) {
+                  count++
+                }
+                return currentElement
+              }, listArray[0])
+              return count
+            }
+
+            let task6 = () => {
+              let found = false
+
+              listArray.forEach(el => {
+                if (el < 1000) {
+                  found = true
+                }
+              })
+
+              if (found) {
+                result = listArray.filter(el => el < 1000)
+              } else {
+                result = ['В масиві немає елемента < 1000']
+              }
+
+              return result
+            }
+
+            let task7 = () => {
+              let message
+              listArray.every(el => el > DEFAULT_VALUE) ? message = `Всі елементи більші за ${DEFAULT_VALUE}` : message = `Не всі елементи більші за ${DEFAULT_VALUE}`
+              return message
+            }
+
+            let task8 = () => {
+              let count = 0
+              for (let i = 0; i <= listArray.length; i++) {
+                if (listArray[i] > DEFAULT_VALUE) {
+                  count++
+                }
+              }
+              return count
+            }
+
+            let task9 = () => {
+              let sum = 0
+              for (let i = 0; i <= listArray.length; i++) {
+                if (listArray[i] > DEFAULT_VALUE) {
+                  sum += listArray[i]
+                }
+              }
+              return sum
+            }
+
+            let task10 = () => {
+              const index = listArray.find(price => price > DEFAULT_VALUE)
+              return index !== undefined ? index : 'В масиві немає цін, які перевищують 1000'
+            }
+
+            let task11 = () => {
+              const index = listArray.findIndex(price => price > DEFAULT_VALUE)
+              return index !== undefined ? index : 'В масиві немає цін, які перевищують 1000'
+            }
+
+            let task12 = () => {
+              const reversedArray = listArray.slice().reverse()
+              const lastPriceOverDefault = reversedArray.find(price => price > DEFAULT_VALUE)
+              return lastPriceOverDefault !== undefined ? lastPriceOverDefault : 'В масиві немає цін, які перевищують 1000'
+            }
+
+            let task13 = () => {
+              const reversedArray = listArray.slice().reverse()
+              const lastIndexOverDefault = reversedArray.findIndex(price => price > DEFAULT_VALUE)
+              return lastIndexOverDefault !== -1 ? listArray.length - 1 - lastIndexOverDefault : 'В масиві немає цін, які перевищують 1000'
+            }
+
+            document.write(`<div>Завдання 1: [${task1()}]</div>`)
+            document.write(`<div>Завдання 2: [${task2()}]</div>`)
+            document.write(`<div>Завдання 3: [${task3()}]</div>`)
+            document.write(`<div>Завдання 4: [${task4()}]</div>`)
+            document.write(`<div>Завдання 5: [${task5()}]</div>`)
+            document.write(`<div>Завдання 6: [${task6()}]</div>`)
+            document.write(`<div>Завдання 7: [${task7()}]</div>`)
+            document.write(`<div>Завдання 8: [${task8()}]</div>`)
+            document.write(`<div>Завдання 9: [${task9()}]</div>`)
+            document.write(`<div>Завдання 10: [${task10()}]</div>`)
+            document.write(`<div>Завдання 11: [${task11()}]</div>`)
+            document.write(`<div>Завдання 12: [${task12()}]</div>`)
+            document.write(`<div>Завдання 13: [${task13()}]</div>`)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
