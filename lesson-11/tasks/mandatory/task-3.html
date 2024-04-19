@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє вказуючи координати.
+            Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+          </div>
+          <script>
+            const MAX_SIZE_FIELD = 6
+            const MAX_COUNT_SHIPS = 5
+            const NUMBER_SHOTS = prompt('Введіть бажану кількість пострілів')
+            let userShots = []
+
+            document.write('<div>Кораблі позначенні буквою X, пусте поле - O</div>')
+
+            function generateRandomCoordinates(sizeField) {
+              return {
+                x: Math.floor(Math.random() * sizeField),
+                y: Math.floor(Math.random() * sizeField)
+              };
+            }
+
+            function initializeGame(sizeField, countShips) {
+              let field = []
+              for (let i = 0; i < sizeField; i++) {
+                let row = []
+                for (let j = 0; j < sizeField; j++) {
+                  row.push(0)
+                }
+                field.push(row)
+              }
+              let placedShips = 0
+              while (placedShips < countShips) {
+                let { x, y } = generateRandomCoordinates(sizeField)
+                if (field[x][y] === 0) {
+                  field[x][y] = 1
+                  placedShips++
+                }
+              }
+
+              return field
+            }
+
+            function printField(field) {
+              let output = ''
+              for (let row of field) {
+                output += row.map(cell => cell === 0 ? 'O' : 'X').join(' ') + '<br>'
+              }
+              document.write(output + '<br>')
+            }
+
+            function playGame(numberShot, numberShips) {
+              let field = initializeGame(MAX_SIZE_FIELD, MAX_COUNT_SHIPS)
+              let shotsLeft = numberShot
+              let shipsLeft = numberShips
+
+              while (shipsLeft > 0 && shotsLeft > 0) {
+                document.write(`У вас залишилось ${shotsLeft} пострілів.<br>`)
+                printField(field)
+
+                let x = prompt('Введіть номер рядка (від 0 до 5):')
+                let y = prompt('Введіть номер стовпця (від 0 до 5):')
+
+                userShots.push({ x: x, y: y })
+
+                if (field[x][y] === 1) {
+                  document.write('Ви потопили корабель!<br>')
+                  field[x][y] = 2
+                  shipsLeft--
+                } else {
+                  document.write('Промах!<br>')
+                }
+
+                shotsLeft--
+              }
+
+              if (shipsLeft === 0) {
+                document.write('Вітаю, ви перемогли!<br>')
+              } else {
+                document.write('Ви використали всі постріли. Гра закінчена.<br>')
+              }
+
+              document.write('Координати ваших пострілів:<br>')
+              for (let shot of userShots) {
+                document.write(`(${shot.x}, ${shot.y})<br>`)
+              }
+            }
+
+            playGame(NUMBER_SHOTS, MAX_COUNT_SHIPS)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

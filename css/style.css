@@ -277,6 +277,7 @@ textarea.input {
 td {
   border: 1px solid #fff;
   padding: 4px;
+  text-align: center;
 }
 @media (min-width: 90em) {
   .main__title--big {

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>JS | Цикли | Завдання 1</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../../../img/bg.jpg" alt="Image">
+        </div>
+        <div class="main__container">
+          <a href="../../index.html">Повернутися назад</a>
+          <div class="main__title main__title--small">Задача 1</span></div>
+          <div class="main__item">
+            Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+            <ul class="list-task">
+              <li class="list-task__item">
+                1) загальний прибуток кожного масиву за тиждень;
+              </li>
+              <li class="list-task__item">
+                2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+              </li>
+              <li class="list-task__item">
+                3) загальний прибуток за робочі дні
+              </li>
+              <li class="list-task__item">
+                4) загальний прибуток за вихідні дні
+              </li>
+              <li class="list-task__item">
+                5) максимальний прибуток за середу
+              </li>
+              <li class="list-task__item">
+                6) сформувати загальний список (одновимірний масив) зі значенням, які більші за 200
+              </li>
+              <li class="list-task__item">
+                7) відсортувати кожен тиждень за зростанням
+              </li>
+              <li class="list-task__item">
+                8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків
+                потрібно порівнювати максимальні елементи у кожному з цих рядків
+              </li>
+              <li class="list-task__item">9) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків
+                треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+              </li>
+            </ul>
+          </div>
+          <script>
+            const MIN_MONEY_PER_DAY = 100, MAX_MONEY_PER_DAY = 999
+            const DAYS_WEEK = 7;
+            const COUNT_SHOP = 8
+
+            function createArray(minValue, maxValue, rowLength, colLength) {
+              let arr = []
+              for (let rowArr = 0; rowArr < rowLength; rowArr++) {
+                let row = []
+                for (let colArr = 0; colArr < colLength; colArr++) {
+                  let number = Math.floor(Math.random() * (maxValue - minValue + 1) + minValue)
+                  row.push(number)
+                }
+                arr.push(row)
+              }
+              return arr
+            }
+            let array = createArray(MIN_MONEY_PER_DAY, MAX_MONEY_PER_DAY, COUNT_SHOP, DAYS_WEEK)
+
+            document.write(`Ваш масив для ${COUNT_SHOP} магазинів:`)
+            document.write('<div><table>')
+            for (let i = 0; i < array.length; i++) {
+              document.write('<tr>')
+              for (let j = 0; j < array[i].length; j++) {
+                document.write(`<td>${array[i][j]}</td>`)
+              }
+              document.write('</tr>')
+            }
+            document.write('</table></div>')
+
+            let task1 = array.map(oneShop => oneShop.reduce((prevSum, money) => prevSum += money))
+            document.write(`<div>Завдання 1) ${task1}</div>`)
+            //========================================================================================================================================================
+            let task2 = []
+            for (let i = 0; i < array[0].length; i++) {
+              let sum = 0
+              for (let j = 0; j < array.length; j++) {
+                sum += array[j][i]
+              }
+              task2.push(sum)
+            }
+            document.write(`<div>Завдання 2) ${task2}</div>`)
+            //========================================================================================================================================================
+            let task3 = 0;
+            for (let i = 0; i < array.length; i++) {
+              for (let j = 0; j < 5; j++) {
+                task3 += array[i][j]
+              }
+            }
+            document.write(`<div>Завдання 3) ${task3}</div>`)
+            //========================================================================================================================================================
+            let task4 = 0;
+            for (let i = 0; i < array.length; i++) {
+              for (let j = 5; j < 7; j++) {
+                task4 += array[i][j]
+              }
+            }
+            document.write(`<div>Завдання 4) ${task4}</div>`)
+            //========================================================================================================================================================
+            let task5 = -Infinity;
+            const WEDNESDAY_INDEX = 2
+            for (let i = 0; i < array.length; i++) {
+              if (array[i][WEDNESDAY_INDEX] > task5) task5 = array[i][WEDNESDAY_INDEX]
+            }
+            document.write(`<div>Завдання 5) ${task5}</div>`)
+            //========================================================================================================================================================
+            let task6 = array.flat().filter(el => el > 200);
+            document.write(`<div>Завдання 6) ${task6}</div>`)
+            //========================================================================================================================================================
+            let task7 = array.map((row) => row.slice().sort((el1, el2) => el1 - el2))
+            document.write('<div><h3>Завдання 7) </h3><table>')
+            for (let i = 0; i < task7.length; i++) {
+              document.write('<tr>')
+              for (let j = 0; j < task7[i].length; j++) {
+                document.write(`<td>${task7[i][j]}</td>`)
+              }
+              document.write('</tr>')
+            }
+            document.write('</table></div>')
+            //========================================================================================================================================================
+            function sortRowsByMaxElement(matrix) {
+              function findMaxIndex(row) {
+                let maxIndex = 0
+                let maxElement = row[0]
+                for (let i = 1; i < row.length; i++) {
+                  if (row[i] > maxElement) {
+                    maxElement = row[i]
+                    maxIndex = i
+                  }
+                }
+                return maxIndex
+              }
+
+              function removeRow(array, index) {
+                return array.slice(0, index).concat(array.slice(index + 1))
+              }
+
+              let sortedMatrix = []
+              while (matrix.length > 0) {
+                let maxRowIndex = 0
+                let maxRow = matrix[0]
+                let maxIndex = findMaxIndex(maxRow)
+                for (let i = 1; i < matrix.length; i++) {
+                  let currentIndex = findMaxIndex(matrix[i])
+                  if (matrix[i][currentIndex] > maxRow[maxIndex]) {
+                    maxRowIndex = i
+                    maxRow = matrix[i]
+                    maxIndex = currentIndex
+                  }
+                }
+                sortedMatrix.push(maxRow)
+                matrix = removeRow(matrix, maxRowIndex)
+              }
+
+              let sortedTable = '<div><table>'
+              for (let i = 0; i < sortedMatrix.length; i++) {
+                sortedTable += '<tr>'
+                for (let j = 0; j < sortedMatrix[i].length; j++) {
+                  sortedTable += `<td>${sortedMatrix[i][j]}</td>`
+                }
+                sortedTable += '</tr>'
+              }
+              sortedTable += '</table></div>'
+
+              return sortedTable
+            }
+            let task8 = sortRowsByMaxElement(array)
+            document.write(`<div>Завдання 8) ${task8}</div>`)
+            //========================================================================================================================================================
+            function sumOfWeek(week) {
+              return week.reduce((acc, curr) => acc + curr, 0)
+            }
+
+            function selectionSortWeeks(array) {
+              for (let i = 0; i < array.length - 1; i++) {
+                let maxIndex = i
+                for (let j = i + 1; j < array.length; j++) {
+                  if (sumOfWeek(array[j]) > sumOfWeek(array[maxIndex])) {
+                    maxIndex = j
+                  }
+                }
+                if (maxIndex !== i) {
+                  [array[i], array[maxIndex]] = [array[maxIndex], array[i]]
+                }
+              }
+              return array
+            }
+            let task9 = selectionSortWeeks(array)
+            document.write(`<div>Завдання 9) ${task9}</div>`)
+          </script>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -46,12 +46,11 @@
               }
               return arr
             }
-
-            const MIN_NUMBER = 10, MAX_NUMBER = 30, ROW_LENGTH = 4, COL_LENGTH = 4
-
-            let array = createArray(MIN_NUMBER, MAX_NUMBER, ROW_LENGTH, COL_LENGTH)
-            document.write('Ваш масив:')
-            document.write('<div><table>');
+            const MIN_VALUE = 10, MAX_VALUE = 999
+            const ROW_LENGTH = 5, COL_LENGTH = 7
+            let array = createArray(MIN_VALUE, MAX_VALUE, ROW_LENGTH, COL_LENGTH)
+            document.write(`Ваш масив з ${ROW_LENGTH} рядків та ${COL_LENGTH} стовпців:`)
+            document.write('<div><table>')
             for (let i = 0; i < array.length; i++) {
               document.write('<tr>');
               for (let j = 0; j < array[i].length; j++) {
@@ -59,61 +58,44 @@
               }
               document.write('</tr>');
             }
-            document.write('</table></div>');
+            document.write('</table></div>')
 
-            let task1 = (arr) => {
+            function calcSum(arr, startRow, endRow, startCol, endCol, stepRow = 1, stepCol = 1, checkFunc) {
               let sum = 0
-              for (let i = 0; i < arr.length / 2; i++) {
-                for (let j = 0; j < arr[i].length / 2; j++) {
-                  sum += arr[i][j]
+              for (let i = startRow; i <= endRow; i += stepRow) {
+                for (let j = startCol; j <= endCol; j += stepCol) {
+                  if (!checkFunc || checkFunc(i, j)) sum += array[i][j]
                 }
               }
               return sum
             }
 
-            let task2 = (arr) => {
-              let sum = 0
-              for (let i = 0; i < arr.length / 2; i++) {
-                for (let j = arr[i].length / 2; j < arr[i].length; j++) {
-                  sum += arr[i][j]
-                }
-              }
-              return sum
-            }
+            let halfRow = Math.floor(array.length / 2)
+            let lastIndexRow = array.length - 1
 
-            let task3 = (arr) => {
-              let sum = 0;
-              for (let i = arr.length / 2; i < arr.length; i++) {
-                for (let j = 0; j < arr[i].length / 2; j++) {
-                  sum += arr[i][j];
-                }
-              }
-              return sum;
-            }
+            let halfCol = Math.floor(array[0].length / 2)
+            let lastIndexCol = array[0].length - 1
 
-            let task4 = (arr) => {
-              let sum = 0
-              for (let i = arr.length / 2; i < arr.length; i++) {
-                for (let j = arr[i].length / 2; j < arr[i].length; j++) {
-                  sum += arr[i][j]
-                }
-              }
-              return sum
-            }
+            let task1 = calcSum(array, 0, halfRow, 0, halfCol)
+            document.write(`<div>Рядки: від 0 до половини, Стовпці: від 0 до половини, ${task1}</div>`)
 
-            let task5 = (arr) => {
-              let sum = 0;
-              for (let i = 0; i < arr.length; i += 2) {
-              }
-              return sum;
-            };
+            let task2 = calcSum(array, 0, halfRow, halfCol + 1, lastIndexCol)
+            document.write(`<div>Рядки: від 0 до половини, Стовпці: від половини до кінця, ${task2}</div>`)
 
+            let task3 = calcSum(array, halfRow + 1, lastIndexRow, 0, halfCol)
+            document.write(`<div>Рядки: від половини до кінця, Стовпці: від 0 до половини, ${task3}</div>`)
 
-            document.write(`<div>Завдання 1: Сума рядків(від 0 до половини) та стовпців(від 0 до половини) дорівнює: ${task1(array)}</div>`)
-            document.write(`<div>Завдання 2: Сума рядків(від 0 до половини) та стовпців(від половини до кінця) дорівнює: ${task2(array)}</div>`)
-            document.write(`<div>Завдання 3: Сума рядків(від половини до кінця) та стовпців(від 0 до половини) дорівнює: ${task3(array)}</div>`)
-            document.write(`<div>Завдання 4: Сума рядків(від половини до кінця) та стовпців(від половини до кінця) дорівнює: ${task4(array)}</div>`)
-            document.write(`<div>Завдання 5: Сума парних рядків масиву дорівнює: ${task5(array)}</div>`)
+            let task4 = calcSum(array, halfRow + 1, lastIndexRow, halfCol + 1, lastIndexCol)
+            document.write(`<div>Рядки: від половини до кінця, Стовпці: від половини до кінця, ${task4}</div>`)
+
+            let task5 = calcSum(array, 0, lastIndexRow, 0, lastIndexCol, 2)
+            document.write(`<div>Сума парних рядків, ${task5}</div>`)
+
+            let task6 = calcSum(array, 0, lastIndexRow, 1, lastIndexCol, 1, 2)
+            document.write(`<div>Сума непарних стовпців, ${task6}</div>`)
+
+            let task7 = calcSum(array, 0, lastIndexRow, 0, lastIndexCol, 1, 1, (row, col) => (row % 2 === 0 && col % 2 !== 0) || (row % 2 !== 0 && col % 2 === 0))
+            document.write(`<div>У парних рядках – непарні стовпці, у непарних – парні, ${task7}</div>`)
           </script>
         </div>
       </div>
