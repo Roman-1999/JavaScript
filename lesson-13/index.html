@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <title>JS | Урок 12: Масиви - продовження. Алгоритми сортування масивів</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../img/bg.jpg" alt="Image">
+        </div>
+        <script>
+          // Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+          //   - назва компанії на час розробки(назву періодично змінюють)
+          //   - власник компанії
+          //   - споснсори(масив спонсорів)
+          //     * прізвище спонсора
+          //     * ім’я  спонсора
+          //     * сума вкладень спонсора
+          //   - рік випуску
+          //   - вартість сайту
+          const sites = [
+            {
+              companyName: "WebDev Inc.",
+              owner: "John Doe",
+              sponsors: [
+                {
+                  surname: "Smith",
+                  name: "Jane",
+                  investment: 10000
+                },
+                {
+                  surname: "Johnson",
+                  name: "Bob",
+                  investment: 5000
+                }
+              ],
+              releaseYear: 2018,
+              siteCost: 50000,
+              technologies: ["HTML", "CSS", "JavaScript", "React"],
+              description: "Сайт для електронної комерції"
+            },
+            {
+              companyName: "IT Solutions",
+              owner: "Alice Brown",
+              sponsors: [
+                {
+                  surname: "Williams",
+                  name: "Michael",
+                  investment: 20000
+                }
+              ],
+              releaseYear: 2020,
+              siteCost: 30000,
+              technologies: ["HTML", "CSS", "JavaScript", "Angular"],
+              description: "Сайт для управління проєктами"
+            },
+            {
+              companyName: "WebDev Inc.",
+              owner: "John Doe",
+              sponsors: [
+                {
+                  surname: "Davis",
+                  name: "Emily",
+                  investment: 15000
+                },
+                {
+                  surname: "Miller",
+                  name: "David",
+                  investment: 8000
+                }
+              ],
+              releaseYear: 2019,
+              siteCost: 40000,
+              technologies: ["HTML", "CSS", "JavaScript", "Vue.js"],
+              description: "Сайт для блогу"
+            },
+            {
+              companyName: "Digital Agency",
+              owner: "Robert Lee",
+              sponsors: [
+                {
+                  surname: "Harris",
+                  name: "Olivia",
+                  investment: 25000
+                },
+                {
+                  surname: "Martin",
+                  name: "Sophia",
+                  investment: 12000
+                }
+              ],
+              releaseYear: 2017,
+              siteCost: 60000,
+              technologies: ["HTML", "CSS", "JavaScript", "WordPress"],
+              description: "Сайт для агенції з цифрового маркетингу"
+            },
+            {
+              companyName: "TechCorp",
+              owner: "Linda Taylor",
+              sponsors: [
+                {
+                  surname: "Walker",
+                  name: "Jessica",
+                  investment: 18000
+                }
+              ],
+              releaseYear: 2021,
+              siteCost: 45000,
+              technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
+              description: "Сайт для стартапу з технологій"
+            },
+            {
+              companyName: "WebDev Inc.",
+              owner: "John Doe",
+              sponsors: [
+                {
+                  surname: "Hall",
+                  name: "Kevin",
+                  investment: 22000
+                },
+                {
+                  surname: "White",
+                  name: "Laura",
+                  investment: 9000
+                }
+              ],
+              releaseYear: 2019,
+              siteCost: 35000,
+              technologies: ["HTML", "CSS", "JavaScript", "React Native"],
+              description: "Сайт для мобільного додатку"
+            },
+            {
+              companyName: "IT Solutions",
+              owner: "Alice Brown",
+              sponsors: [
+                {
+                  surname: "Lewis",
+                  name: "Benjamin",
+                  investment: 28000
+                }
+              ],
+              releaseYear: 2020,
+              siteCost: 42000,
+              technologies: ["HTML", "CSS", "JavaScript", "Angular"],
+              description: "Сайт для системи управління контентом"
+            },
+            {
+              companyName: "Digital Agency",
+              owner: "Robert Lee",
+              sponsors: [
+                {
+                  surname: "King",
+                  name: "Alexander",
+                  investment: 32000
+                },
+                {
+                  surname: "Russell",
+                  name: "Abigail",
+                  investment: 14000
+                }
+              ],
+              releaseYear: 2018,
+              siteCost: 52000,
+              technologies: ["HTML", "CSS", "JavaScript", "WordPress"],
+              description: "Сайт для агенції з цифрового маркетингу"
+            },
+            {
+              companyName: "TechCorp",
+              owner: "Linda Taylor",
+              sponsors: [
+                {
+                  surname: "Brooks",
+                  name: "Ethan",
+                  investment: 20000
+                }
+              ],
+              releaseYear: 2021,
+              siteCost: 38000,
+              technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
+              description: "Сайт для стартапу з технологій"
+            }
+          ]
+          // 1) загальну вартість усіх сайтів
+          // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+          // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+          // 4) створити загальний список усіх спонсорів(поки можуть повторюватись, просто зібрати усі у масив)
+          // 5) знайти рік, коли прибуток був найбільшим
+          // 6) упорядкувати список за спаданням прибутку
+          // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+
+        </script>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
