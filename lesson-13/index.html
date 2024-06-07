@@ -2,7 +2,7 @@
 <html lang="uk">
 
 <head>
-  <title>JS | Урок 12: Масиви - продовження. Алгоритми сортування масивів</title>
+  <title>JS | Урок 13: Об'єкти</title>
   <meta charset="UTF-8">
   <meta name="format-detection" content="telephone=no">
   <!-- <style>body{opacity: 0;}</style> -->
@@ -36,7 +36,7 @@
                 {
                   surname: "Smith",
                   name: "Jane",
-                  investment: 10000
+                  investment: 100000
                 },
                 {
                   surname: "Johnson",
@@ -45,9 +45,7 @@
                 }
               ],
               releaseYear: 2018,
-              siteCost: 50000,
-              technologies: ["HTML", "CSS", "JavaScript", "React"],
-              description: "Сайт для електронної комерції"
+              siteCost: 500
             },
             {
               companyName: "IT Solutions",
@@ -60,9 +58,7 @@
                 }
               ],
               releaseYear: 2020,
-              siteCost: 30000,
-              technologies: ["HTML", "CSS", "JavaScript", "Angular"],
-              description: "Сайт для управління проєктами"
+              siteCost: 30000
             },
             {
               companyName: "WebDev Inc.",
@@ -80,9 +76,7 @@
                 }
               ],
               releaseYear: 2019,
-              siteCost: 40000,
-              technologies: ["HTML", "CSS", "JavaScript", "Vue.js"],
-              description: "Сайт для блогу"
+              siteCost: 40000
             },
             {
               companyName: "Digital Agency",
@@ -100,9 +94,7 @@
                 }
               ],
               releaseYear: 2017,
-              siteCost: 60000,
-              technologies: ["HTML", "CSS", "JavaScript", "WordPress"],
-              description: "Сайт для агенції з цифрового маркетингу"
+              siteCost: 6000
             },
             {
               companyName: "TechCorp",
@@ -115,9 +107,7 @@
                 }
               ],
               releaseYear: 2021,
-              siteCost: 45000,
-              technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
-              description: "Сайт для стартапу з технологій"
+              siteCost: 45000
             },
             {
               companyName: "WebDev Inc.",
@@ -135,9 +125,7 @@
                 }
               ],
               releaseYear: 2019,
-              siteCost: 35000,
-              technologies: ["HTML", "CSS", "JavaScript", "React Native"],
-              description: "Сайт для мобільного додатку"
+              siteCost: 35000
             },
             {
               companyName: "IT Solutions",
@@ -150,9 +138,7 @@
                 }
               ],
               releaseYear: 2020,
-              siteCost: 42000,
-              technologies: ["HTML", "CSS", "JavaScript", "Angular"],
-              description: "Сайт для системи управління контентом"
+              siteCost: 42000
             },
             {
               companyName: "Digital Agency",
@@ -170,9 +156,7 @@
                 }
               ],
               releaseYear: 2018,
-              siteCost: 52000,
-              technologies: ["HTML", "CSS", "JavaScript", "WordPress"],
-              description: "Сайт для агенції з цифрового маркетингу"
+              siteCost: 52000
             },
             {
               companyName: "TechCorp",
@@ -185,19 +169,86 @@
                 }
               ],
               releaseYear: 2021,
-              siteCost: 38000,
-              technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
-              description: "Сайт для стартапу з технологій"
+              siteCost: 38000
             }
           ]
           // 1) загальну вартість усіх сайтів
-          // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
-          // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
-          // 4) створити загальний список усіх спонсорів(поки можуть повторюватись, просто зібрати усі у масив)
-          // 5) знайти рік, коли прибуток був найбільшим
-          // 6) упорядкувати список за спаданням прибутку
-          // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+          // let totalPrice = sites.reduce((prevPrice, site) => prevPrice + site.siteCost, 0)
+          // console.log(totalPrice)
 
+          // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+          // const START_YEAR = 2000, END_YEAR = 2009
+          // let totalCount = sites.reduce((prevCount, site) => site.releaseYear > START_YEAR && site.releaseYear < END_YEAR ? prevCount + 1 : prevCount, 0)
+          // console.log(totalCount)
+
+          // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+          // const MIN_INVESTMENT = 100000;
+          // let totalCount = sites.reduce(
+          //   (prevCount, site) => {
+          //     const totalInvestment = site.sponsors.reduce(
+          //       (prevSum, sponsor) =>
+          //         prevSum + sponsor.investment, 0
+          //     )
+          //     return totalInvestment > MIN_INVESTMENT ? prevCount + 1 : prevCount
+          //   }, 0
+          // );
+          // console.log(totalCount)
+
+          // 4) створити загальний список усіх спонсорів(поки можуть повторюватись, просто зібрати усі у масив)
+          // let listSponsors = sites.reduce((acc, site) => [...acc, ...site.sponsors], [])
+          // console.log(listSponsors)
+          // let listSponsors = sites.reduce((prevProperty, site) => {
+          //   for (const sponsor of site.sponsors) {
+          //     prevProperty[sponsor.surname + ' ' + sponsor.name] = sponsor.investment;
+          //   }
+          //   return prevProperty;
+          // }, [])
+          // console.log(listSponsors);
+
+          // 5) знайти рік, коли прибуток був найбільшим
+          // const yearIncome = {}
+          // sites.forEach(site => {
+          //   const totalInvestment = site.sponsors.reduce((prevInvest, sponsor) => prevInvest + sponsor.investment, 0)
+          //   const income = totalInvestment - site.siteCost
+          //   if (!yearIncome[site.releaseYear]) {
+          //     yearIncome[site.releaseYear] = 0
+          //   }
+          //   yearIncome[site.releaseYear] += income
+          // })
+          // let maxIncomeYear
+          // let maxIncome = 0
+          // for (const year in yearIncome) {
+          //   if (yearIncome[year] > maxIncome) {
+          //     maxIncome = yearIncome[year]
+          //     maxIncomeYear = year
+          //   }
+          // }
+          // console.log(maxIncomeYear)
+
+          // 6) упорядкувати список за спаданням прибутку
+          // const yearIncome = {}
+          // sites.forEach(site => {
+          //   const totalInvestment = site.sponsors.reduce((prevInvest, sponsor) => prevInvest + sponsor.investment, 0)
+          //   const income = totalInvestment - site.siteCost
+          //   if (!yearIncome[site.releaseYear]) {
+          //     yearIncome[site.releaseYear] = 0
+          //   }
+          //   yearIncome[site.releaseYear] += income
+          // })
+          // const sortedYears = []
+          // for (const year in yearIncome) {
+          //   sortedYears.push({ year, income: yearIncome[year] })
+          // }
+          // sortedYears.sort((a, b) => b.income - a.income)
+          // console.log(sortedYears)
+
+          // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+          //JSON.parse(JSON.stringify(Об'єкт))
+          // const sitesCopy = JSON.parse(JSON.stringify(sites))
+          // const sitesUnder10000 = sitesCopy.filter(site => site.siteCost <= 10000)
+          // const sitesOver10000 = sitesCopy.filter(site => site.siteCost > 10000)
+          // console.log(sitesUnder10000)
+          // console.log(sitesOver10000)
         </script>
       </div>
     </main>
