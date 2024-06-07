@@ -60,11 +60,11 @@
           Методи (дії): Заправка на вказану кількість літрів, Виведення кількості пасажирів, Додавання пасажирів, Висадка пасажирів
           */
           function Car(initialBrand, initialSizeTank, initialAvailableLiters, initialNumberSeats, initialNumberPeople) {
-            this.brand = initialBrand
-            this.sizeTank = initialSizeTank
-            this.availableLiters = initialAvailableLiters
-            this.numberSeats = initialNumberSeats
-            this.numberPeople = initialNumberPeople
+            this.brand = initialBrand //Марка
+            this.sizeTank = initialSizeTank //Розмір баку
+            this.availableLiters = initialAvailableLiters //Кількість наявних літрів
+            this.numberSeats = initialNumberSeats //Кількість місць
+            this.numberPeople = initialNumberPeople //Кількість пасажирів
           }
           //Виведення кількості пасажирів
           Car.prototype.toString = function () {
@@ -72,9 +72,30 @@
           }
           //Додавання пасажирів
           Car.prototype.addPeople = function (value) {
-            value > this.
+            let result
+            if (this.numberPeople + value > this.numberSeats) {
+              result = 'Помилка'
+            } else {
+              this.numberPeople += value
+              result = `Додано ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
+            }
+            return result
           }
           //Висадка пасажирів
+          Car.prototype.removePeople = function (value) {
+            let result
+            if (this.numberPeople < 0) {
+              result = 'Помилка'
+            } else {
+              this.numberPeople -= value
+              result = this.numberPeople
+              result < 0 ? result = 'Помилка' : result = `Вийшло ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
+            }
+            return result
+          }
+          const myCar = new Car('Toyota', 60, 30, 5, 5)
+          //console.log(myCar.addPeople(0))
+          //console.log(myCar.removePeople(4))
         </script>
       </div>
     </main>
