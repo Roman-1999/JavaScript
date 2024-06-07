@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <title>JS | Урок 15: Об'єкти</title>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <style>body{opacity: 0;}</style> -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="page">
+      <div class="page__main main">
+        <div class="main__bg">
+          <img class="ibg" src="../img/bg.jpg" alt="Image">
+        </div>
+        <script>
+          /*
+          Дано два об’єкта. Обидва містять масив цілих чисел.
+          При цьому у одному з них є функція знаходження суми,
+          а у іншому – функція для знаходження добутку тих,
+          які знаходяться між заданими мінімальним і максимальних значенням.
+          Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+          */
+          // const numberListFirst = {
+          //   numbers: [1, 2, 3, 4, 5, 6],
+          //   calcSum: function () {
+          //     let sum = this.numbers.reduce((prevSum, number) => prevSum + number, 0)
+          //     return sum
+          //   }
+          // }
+          // const numberListLast = {
+          //   numbers: [10, 20, 30],
+          //   calcMultipli: function (fisrtValue, lastValue) {
+          //     if (fisrtValue > lastValue) {
+          //       return 0
+          //     }
+          //     let result = 1
+          //     for (let i = 0; i < this.numbers.length; i++) {
+          //       if (this.numbers[i] >= fisrtValue && this.numbers[i] <= lastValue) {
+          //         result *= this.numbers[i]
+          //       }
+          //     }
+          //     return result
+          //   }
+          // }
+          // let sumCall = numberListFirst.calcSum.call(numberListLast)
+          // let multCall = numberListLast.calcMultipli.call(numberListFirst, 2, 5)
+          // let sumApply = numberListFirst.calcSum.apply(numberListLast)
+          // let multApply = numberListLast.calcMultipli.apply(numberListFirst, [2, 5])
+          // console.log(sumCall + ` ` + multCall + ` ` + sumApply + ` ` + multApply);
+
+          /*
+          Задача 2. Створити об’єкт «Авто». 
+          Поля(властивості): Марка, Розмір бака, Кількість наявних літрів, Кількість місць, Кількість пасажирів
+          Методи (дії): Заправка на вказану кількість літрів, Виведення кількості пасажирів, Додавання пасажирів, Висадка пасажирів
+          */
+          function Car(initialBrand, initialSizeTank, initialAvailableLiters, initialNumberSeats, initialNumberPeople) {
+            this.brand = initialBrand //Марка
+            this.sizeTank = initialSizeTank //Розмір баку
+            this.availableLiters = initialAvailableLiters //Кількість наявних літрів
+            this.numberSeats = initialNumberSeats //Кількість місць
+            this.numberPeople = initialNumberPeople //Кількість пасажирів
+          }
+          //Виведення кількості пасажирів
+          Car.prototype.toString = function () {
+            return `[${this.numberPeople}]`
+          }
+          //Додавання пасажирів
+          Car.prototype.addPeople = function (value) {
+            let result
+            if (this.numberPeople + value > this.numberSeats) {
+              result = 'Помилка'
+            } else {
+              this.numberPeople += value
+              result = `Додано ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
+            }
+            return result
+          }
+          //Висадка пасажирів
+          Car.prototype.removePeople = function (value) {
+            let result
+            if (this.numberPeople < 0) {
+              result = 'Помилка'
+            } else {
+              this.numberPeople -= value
+              result = this.numberPeople
+              result < 0 ? result = 'Помилка' : result = `Вийшло ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
+            }
+            return result
+          }
+          const myCar = new Car('Toyota', 60, 30, 5, 5)
+          //console.log(myCar.addPeople(0))
+          //console.log(myCar.removePeople(4))
+        </script>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -19,83 +19,236 @@
           <img class="ibg" src="../img/bg.jpg" alt="Image">
         </div>
         <script>
-          /*
-          Дано два об’єкта. Обидва містять масив цілих чисел.
-          При цьому у одному з них є функція знаходження суми,
-          а у іншому – функція для знаходження добутку тих,
-          які знаходяться між заданими мінімальним і максимальних значенням.
-          Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
-          */
-          // const numberListFirst = {
-          //   numbers: [1, 2, 3, 4, 5, 6],
-          //   calcSum: function () {
-          //     let sum = this.numbers.reduce((prevSum, number) => prevSum + number, 0)
-          //     return sum
-          //   }
-          // }
-          // const numberListLast = {
-          //   numbers: [10, 20, 30],
-          //   calcMultipli: function (fisrtValue, lastValue) {
-          //     if (fisrtValue > lastValue) {
-          //       return 0
-          //     }
-          //     let result = 1
-          //     for (let i = 0; i < this.numbers.length; i++) {
-          //       if (this.numbers[i] >= fisrtValue && this.numbers[i] <= lastValue) {
-          //         result *= this.numbers[i]
-          //       }
-          //     }
-          //     return result
-          //   }
-          // }
-          // let sumCall = numberListFirst.calcSum.call(numberListLast)
-          // let multCall = numberListLast.calcMultipli.call(numberListFirst, 2, 5)
-          // let sumApply = numberListFirst.calcSum.apply(numberListLast)
-          // let multApply = numberListLast.calcMultipli.apply(numberListFirst, [2, 5])
-          // console.log(sumCall + ` ` + multCall + ` ` + sumApply + ` ` + multApply);
+          // Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+          //   - назва компанії на час розробки(назву періодично змінюють)
+          //   - власник компанії
+          //   - споснсори(масив спонсорів)
+          //     * прізвище спонсора
+          //     * ім’я  спонсора
+          //     * сума вкладень спонсора
+          //   - рік випуску
+          //   - вартість сайту
+          const sites = [
+            {
+              companyName: "WebDev Inc.",
+              owner: "John Doe",
+              sponsors: [
+                {
+                  surname: "Smith",
+                  name: "Jane",
+                  investment: 100000
+                },
+                {
+                  surname: "Johnson",
+                  name: "Bob",
+                  investment: 5000
+                }
+              ],
+              releaseYear: 2018,
+              siteCost: 500
+            },
+            {
+              companyName: "IT Solutions",
+              owner: "Alice Brown",
+              sponsors: [
+                {
+                  surname: "Williams",
+                  name: "Michael",
+                  investment: 20000
+                }
+              ],
+              releaseYear: 2020,
+              siteCost: 30000
+            },
+            {
+              companyName: "WebDev Inc.",
+              owner: "John Doe",
+              sponsors: [
+                {
+                  surname: "Davis",
+                  name: "Emily",
+                  investment: 15000
+                },
+                {
+                  surname: "Miller",
+                  name: "David",
+                  investment: 8000
+                }
+              ],
+              releaseYear: 2019,
+              siteCost: 40000
+            },
+            {
+              companyName: "Digital Agency",
+              owner: "Robert Lee",
+              sponsors: [
+                {
+                  surname: "Harris",
+                  name: "Olivia",
+                  investment: 25000
+                },
+                {
+                  surname: "Martin",
+                  name: "Sophia",
+                  investment: 12000
+                }
+              ],
+              releaseYear: 2017,
+              siteCost: 6000
+            },
+            {
+              companyName: "TechCorp",
+              owner: "Linda Taylor",
+              sponsors: [
+                {
+                  surname: "Walker",
+                  name: "Jessica",
+                  investment: 18000
+                }
+              ],
+              releaseYear: 2021,
+              siteCost: 45000
+            },
+            {
+              companyName: "WebDev Inc.",
+              owner: "John Doe",
+              sponsors: [
+                {
+                  surname: "Hall",
+                  name: "Kevin",
+                  investment: 22000
+                },
+                {
+                  surname: "White",
+                  name: "Laura",
+                  investment: 9000
+                }
+              ],
+              releaseYear: 2019,
+              siteCost: 35000
+            },
+            {
+              companyName: "IT Solutions",
+              owner: "Alice Brown",
+              sponsors: [
+                {
+                  surname: "Lewis",
+                  name: "Benjamin",
+                  investment: 28000
+                }
+              ],
+              releaseYear: 2020,
+              siteCost: 42000
+            },
+            {
+              companyName: "Digital Agency",
+              owner: "Robert Lee",
+              sponsors: [
+                {
+                  surname: "King",
+                  name: "Alexander",
+                  investment: 32000
+                },
+                {
+                  surname: "Russell",
+                  name: "Abigail",
+                  investment: 14000
+                }
+              ],
+              releaseYear: 2018,
+              siteCost: 52000
+            },
+            {
+              companyName: "TechCorp",
+              owner: "Linda Taylor",
+              sponsors: [
+                {
+                  surname: "Brooks",
+                  name: "Ethan",
+                  investment: 20000
+                }
+              ],
+              releaseYear: 2021,
+              siteCost: 38000
+            }
+          ]
+          // 1) загальну вартість усіх сайтів
+          // let totalPrice = sites.reduce((prevPrice, site) => prevPrice + site.siteCost, 0)
+          // console.log(totalPrice)
 
-          /*
-          Задача 2. Створити об’єкт «Авто». 
-          Поля(властивості): Марка, Розмір бака, Кількість наявних літрів, Кількість місць, Кількість пасажирів
-          Методи (дії): Заправка на вказану кількість літрів, Виведення кількості пасажирів, Додавання пасажирів, Висадка пасажирів
-          */
-          function Car(initialBrand, initialSizeTank, initialAvailableLiters, initialNumberSeats, initialNumberPeople) {
-            this.brand = initialBrand //Марка
-            this.sizeTank = initialSizeTank //Розмір баку
-            this.availableLiters = initialAvailableLiters //Кількість наявних літрів
-            this.numberSeats = initialNumberSeats //Кількість місць
-            this.numberPeople = initialNumberPeople //Кількість пасажирів
-          }
-          //Виведення кількості пасажирів
-          Car.prototype.toString = function () {
-            return `[${this.numberPeople}]`
-          }
-          //Додавання пасажирів
-          Car.prototype.addPeople = function (value) {
-            let result
-            if (this.numberPeople + value > this.numberSeats) {
-              result = 'Помилка'
-            } else {
-              this.numberPeople += value
-              result = `Додано ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
-            }
-            return result
-          }
-          //Висадка пасажирів
-          Car.prototype.removePeople = function (value) {
-            let result
-            if (this.numberPeople < 0) {
-              result = 'Помилка'
-            } else {
-              this.numberPeople -= value
-              result = this.numberPeople
-              result < 0 ? result = 'Помилка' : result = `Вийшло ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
-            }
-            return result
-          }
-          const myCar = new Car('Toyota', 60, 30, 5, 5)
-          //console.log(myCar.addPeople(0))
-          //console.log(myCar.removePeople(4))
+          // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+          // const START_YEAR = 2000, END_YEAR = 2009
+          // let totalCount = sites.reduce((prevCount, site) => site.releaseYear > START_YEAR && site.releaseYear < END_YEAR ? prevCount + 1 : prevCount, 0)
+          // console.log(totalCount)
+
+          // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+          // const MIN_INVESTMENT = 100000;
+          // let totalCount = sites.reduce(
+          //   (prevCount, site) => {
+          //     const totalInvestment = site.sponsors.reduce(
+          //       (prevSum, sponsor) =>
+          //         prevSum + sponsor.investment, 0
+          //     )
+          //     return totalInvestment > MIN_INVESTMENT ? prevCount + 1 : prevCount
+          //   }, 0
+          // );
+          // console.log(totalCount)
+
+          // 4) створити загальний список усіх спонсорів(поки можуть повторюватись, просто зібрати усі у масив)
+          // let listSponsors = sites.reduce((acc, site) => [...acc, ...site.sponsors], [])
+          // console.log(listSponsors)
+          // let listSponsors = sites.reduce((prevProperty, site) => {
+          //   for (const sponsor of site.sponsors) {
+          //     prevProperty[sponsor.surname + ' ' + sponsor.name] = sponsor.investment;
+          //   }
+          //   return prevProperty;
+          // }, [])
+          // console.log(listSponsors);
+
+          // 5) знайти рік, коли прибуток був найбільшим
+          // const yearIncome = {}
+          // sites.forEach(site => {
+          //   const totalInvestment = site.sponsors.reduce((prevInvest, sponsor) => prevInvest + sponsor.investment, 0)
+          //   const income = totalInvestment - site.siteCost
+          //   if (!yearIncome[site.releaseYear]) {
+          //     yearIncome[site.releaseYear] = 0
+          //   }
+          //   yearIncome[site.releaseYear] += income
+          // })
+          // let maxIncomeYear
+          // let maxIncome = 0
+          // for (const year in yearIncome) {
+          //   if (yearIncome[year] > maxIncome) {
+          //     maxIncome = yearIncome[year]
+          //     maxIncomeYear = year
+          //   }
+          // }
+          // console.log(maxIncomeYear)
+
+          // 6) упорядкувати список за спаданням прибутку
+          // const yearIncome = {}
+          // sites.forEach(site => {
+          //   const totalInvestment = site.sponsors.reduce((prevInvest, sponsor) => prevInvest + sponsor.investment, 0)
+          //   const income = totalInvestment - site.siteCost
+          //   if (!yearIncome[site.releaseYear]) {
+          //     yearIncome[site.releaseYear] = 0
+          //   }
+          //   yearIncome[site.releaseYear] += income
+          // })
+          // const sortedYears = []
+          // for (const year in yearIncome) {
+          //   sortedYears.push({ year, income: yearIncome[year] })
+          // }
+          // sortedYears.sort((a, b) => b.income - a.income)
+          // console.log(sortedYears)
+
+          // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+          //JSON.parse(JSON.stringify(Об'єкт))
+          // const sitesCopy = JSON.parse(JSON.stringify(sites))
+          // const sitesUnder10000 = sitesCopy.filter(site => site.siteCost <= 10000)
+          // const sitesOver10000 = sitesCopy.filter(site => site.siteCost > 10000)
+          // console.log(sitesUnder10000)
+          // console.log(sitesOver10000)
         </script>
       </div>
     </main>
