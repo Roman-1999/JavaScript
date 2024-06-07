@@ -55,47 +55,222 @@
           // console.log(sumCall + ` ` + multCall + ` ` + sumApply + ` ` + multApply);
 
           /*
-          Задача 2. Створити об’єкт «Авто». 
+          Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+          Поля(властивості)
+            - Масив, у якому зберігається поле з зайцями
+          Методи (дії)
+            - Метод пострілу (задається позиція пострілу)
+            - Виведення ігрового поля
+          */
+          // class ShootingRange {
+          //   constructor(size) {
+          //     this.field = new Array(size).fill(0)
+          //     this.initField()
+          //   }
+          //   initField() {
+          //     for (let i = 0; i < this.field.length; i++) {
+          //       if (Math.random() < 0.5) {
+          //         this.field[i] = 1
+          //       }
+          //     }
+          //   }
+          //   shoot(position) {
+          //     if (position < 0 || position >= this.field.length) {
+          //       return console.log("Помилка: поза межами поля")
+          //     }
+          //     if (this.field[position] === 1) {
+          //       console.log("Влучено!")
+          //       this.field[position] = 0
+          //     } else {
+          //       console.log("Промах")
+          //     }
+          //   }
+          //   renderField() {
+          //     for (let i = 0; i < this.field.length; i++) {
+          //       console.log(`[${i}]: ${this.field[i] === 1 ? "Заєць" : "Порожньо"}`)
+          //     }
+          //   }
+          // }
+          // let shootingRange = new ShootingRange(10);
+          // shootingRange.renderField();
+          // shootingRange.shoot(5);
+          // shootingRange.renderField();
+
+          /*
+          Задача 2. Створити об’єкт «Авто».
           Поля(властивості): Марка, Розмір бака, Кількість наявних літрів, Кількість місць, Кількість пасажирів
           Методи (дії): Заправка на вказану кількість літрів, Виведення кількості пасажирів, Додавання пасажирів, Висадка пасажирів
           */
-          function Car(initialBrand, initialSizeTank, initialAvailableLiters, initialNumberSeats, initialNumberPeople) {
-            this.brand = initialBrand //Марка
-            this.sizeTank = initialSizeTank //Розмір баку
-            this.availableLiters = initialAvailableLiters //Кількість наявних літрів
-            this.numberSeats = initialNumberSeats //Кількість місць
-            this.numberPeople = initialNumberPeople //Кількість пасажирів
-          }
-          //Виведення кількості пасажирів
-          Car.prototype.toString = function () {
-            return `[${this.numberPeople}]`
-          }
-          //Додавання пасажирів
-          Car.prototype.addPeople = function (value) {
-            let result
-            if (this.numberPeople + value > this.numberSeats) {
-              result = 'Помилка'
-            } else {
-              this.numberPeople += value
-              result = `Додано ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
-            }
-            return result
-          }
-          //Висадка пасажирів
-          Car.prototype.removePeople = function (value) {
-            let result
-            if (this.numberPeople < 0) {
-              result = 'Помилка'
-            } else {
-              this.numberPeople -= value
-              result = this.numberPeople
-              result < 0 ? result = 'Помилка' : result = `Вийшло ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
-            }
-            return result
-          }
-          const myCar = new Car('Toyota', 60, 30, 5, 5)
-          //console.log(myCar.addPeople(0))
-          //console.log(myCar.removePeople(4))
+          // function Car(initialBrand, initialSizeTank, initialAvailableLiters, initialNumberSeats, initialNumberPeople) {
+          //   this.brand = initialBrand //Марка
+          //   this.sizeTank = initialSizeTank //Розмір баку
+          //   this.availableLiters = initialAvailableLiters //Кількість наявних літрів
+          //   this.numberSeats = initialNumberSeats //Кількість місць
+          //   this.numberPeople = initialNumberPeople //Кількість пасажирів
+          // }
+          // //Заправка на вказану кількість літрів
+          // Car.prototype.getFiling = function (value) {
+          //   if (this.sizeTank < value && value > 0 || this.availableLiters > this.sizeTank) {
+          //     return 'Помилка, число перевищує розмір баку, число менше 0 або розмір баку менше за теперішній вміст баку'
+          //   } else {
+          //     let restLiters = this.sizeTank - this.availableLiters;
+          //     if (restLiters >= value) {
+          //       this.availableLiters += value;
+          //       return `Автомобіль заправлений на ${value} літрів. Тепер у баку є ${this.availableLiters} літрів`;
+          //     } else {
+          //       return 'Помилка: немає місця в баку для заправки';
+          //     }
+          //   }
+          // }
+          // //Виведення кількості пасажирів
+          // Car.prototype.toString = function () {
+          //   return this.numberPeople
+          // }
+          // //Додавання пасажирів
+          // Car.prototype.addPeople = function (value) {
+          //   let result
+          //   if (this.numberPeople + value > this.numberSeats) {
+          //     result = 'Помилка'
+          //   } else {
+          //     this.numberPeople += value
+          //     result = `Додано ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
+          //   }
+          //   return result
+          // }
+          // //Висадка пасажирів
+          // Car.prototype.removePeople = function (value) {
+          //   let result
+          //   if (this.numberPeople < 0) {
+          //     result = 'Помилка'
+          //   } else {
+          //     this.numberPeople -= value
+          //     result = this.numberPeople
+          //     result < 0 ? result = 'Помилка' : result = `Вийшло ${value} пасажирів. Тепер у автомобілі ${this.numberPeople} пасажирів`
+          //   }
+          //   return result
+          // }
+          // const myCar = new Car('Toyota', 20, 30, 5, 5)
+          // console.log(myCar.toString());
+          // console.log(myCar.getFiling(10));
+          // console.log(myCar.addPeople(0))
+          // console.log(myCar.removePeople(4))
+
+          /*
+          Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+          Поля:
+            - Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+            - Кількість правильних відповідей
+            - Кількість неправильних відповідей
+          Методи:
+            - Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+            - Перевірка правильності вказаної відповіді
+            - render - виведення інформації про тестування на екран
+          */
+          // class MultChecker {
+          //   constructor(fixValue) {
+          //     this.fixValue = fixValue
+          //     this.correct = 0
+          //     this.wrong = 0
+          //   }
+          //   exampleGenerator() {
+          //     let secondValue = Math.floor(Math.random() * 10) + 1
+          //     return `${this.fixValue} × ${secondValue} = ?`
+          //   }
+          //   checkAnswer(userAnswer) {
+          //     let correctAnswer = this.fixValue * parseInt(Math.floor(Math.random() * 10) + 1)
+          //     if (userAnswer === correctAnswer) {
+          //       this.correct++
+          //     } else {
+          //       this.wrong++
+          //     }
+          //   }
+          //   render() {
+          //     console.log(`Результати тестування на множення на ${this.fixValue}:`)
+          //     console.log(`Кількість правильних відповідей: ${this.correct}`)
+          //     console.log(`Кількість неправильних відповідей: ${this.wrong}`)
+          //   }
+          // }
+          // let multChecker = new MultChecker(7)
+          // for (let i = 0; i < 10; i++) {
+          //   console.log(multChecker.exampleGenerator())
+          //   let userAnswer = 28
+          //   if (multChecker.checkAnswer(parseInt(userAnswer))) {
+          //     console.log("Правильна відповідь!")
+          //   } else {
+          //     console.log("Неправильна відповідь!")
+          //   }
+          // }
+          // multChecker.render()
+
+          /*
+          Задача 4. Розробити клас Baner
+          Поля:
+            - Масив об’єктів ( графічних зображень та посилань на сайти)
+          Методи:
+            - Метод випадкового вибору об’єкта (графічного зображення та посилання)
+            - Метод виведення випадкового банера
+          */
+          // class Banner {
+          //   constructor(banners) {
+          //     this.banners = banners
+          //   }
+          //   getRandomBanner() {
+          //     let randomIndex = Math.floor(Math.random() * this.banners.length)
+          //     return this.banners[randomIndex]
+          //   }
+          //   renderBanner() {
+          //     let randomBanner = this.getRandomBanner()
+          //     console.log(`Банер: ${randomBanner.image}`)
+          //     console.log(`Посилання: ${randomBanner.link}`)
+          //   }
+          // }
+          // let banners = [
+          //   { image: 'шлях-1', link: 'https://test-1' },
+          //   { image: 'шлях-2', link: 'https://test-2' },
+          //   { image: 'шлях-3', link: 'https://test-3' }
+          // ]
+          // let banner = new Banner(banners)
+          // console.log(banner.renderBanner())
+
+          /*
+          Задача 5. Розробити клас «Керівник танців»
+          Поля:
+            - Масив імен хлопців
+            - Масив імен дівчат
+          Методи:
+            - Метод випадкового вибору імені хлопця
+            - Метод випадкового вибору імені дівчини
+            - Метод виведення пари для танців
+            - Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+          */
+          // class DanceLeader {
+          //   constructor(boys, girls) {
+          //     this.boys = boys
+          //     this.girls = girls
+          //   }
+          //   getRandomBoy() {
+          //     let randomIndex = Math.floor(Math.random() * this.boys.length)
+          //     return console.log(this.boys[randomIndex]);
+          //   }
+          //   getRandomGirl() {
+          //     let randomIndex = Math.floor(Math.random() * this.girls.length)
+          //     return console.log(this.girls[randomIndex]);
+          //   }
+          //   renderPair() {
+          //     let boy = this.getRandomBoy()
+          //     let girl = this.getRandomGirl()
+          //     console.log(`Пара для танців: ${boy} та ${girl}`)
+          //   }
+          //   run() {
+          //     setInterval(() => {
+          //       this.renderPair()
+          //     }, 5000)
+          //   }
+          // }
+          // let boys = ['Олександр', 'Андрій', 'Володимир', 'Сергій']
+          // let girls = ['Олена', 'Анна', 'Юлія', 'Катерина']
+          // let danceLeader = new DanceLeader(boys, girls)
+          // danceLeader.getRandomGirl()
         </script>
       </div>
     </main>
