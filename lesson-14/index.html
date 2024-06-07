@@ -56,9 +56,25 @@
 
           /*
           Задача 2. Створити об’єкт «Авто». 
-          Поля(властивості):Марка, Розмір бака, Кількість наявних літрів, Кількість місць, Кількість пасажирів
+          Поля(властивості): Марка, Розмір бака, Кількість наявних літрів, Кількість місць, Кількість пасажирів
           Методи (дії): Заправка на вказану кількість літрів, Виведення кількості пасажирів, Додавання пасажирів, Висадка пасажирів
           */
+          function Car(initialBrand, initialSizeTank, initialAvailableLiters, initialNumberSeats, initialNumberPeople) {
+            this.brand = initialBrand
+            this.sizeTank = initialSizeTank
+            this.availableLiters = initialAvailableLiters
+            this.numberSeats = initialNumberSeats
+            this.numberPeople = initialNumberPeople
+          }
+          //Виведення кількості пасажирів
+          Car.prototype.toString = function () {
+            return `[${this.numberPeople}]`
+          }
+          //Додавання пасажирів
+          Car.prototype.addPeople = function (value) {
+            value > this.
+          }
+          //Висадка пасажирів
         </script>
       </div>
     </main>
